@@ -9,91 +9,102 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <div class="logo">AI Association</div>
-        <nav>
-            <a href="index.html" class="active">Home</a>
-            <a href="about.html">About</a>
-            <a href="events.html">Events</a>
-            <a href="projects.html">Projects</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+    <header class="header">
+        <div class="container">
+            <div class="logo">AI Association</div>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="marketplace.html" class="active">Marketplace</a>
+                <a href="donations.html">Donations</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="hero">
-        <div class="hero-content">
-            <h1>Welcome to the Artificial Intelligence Association</h1>
-            <p>We bring together innovators, thinkers, and students passionate about shaping the future with AI. Learn, collaborate, and build with us!</p>
-            <div class="hero-buttons">
-                <button onclick="window.location.href='about.html'">Learn More</button>
-                <button onclick="window.location.href='contact.html'" class="secondary">Join Now</button>
+    <section id="hero" class="hero">
+        <div class="container hero-wrapper">
+            <div class="hero-text">
+                <h1>Welcome to the Artificial Intelligence Association</h1>
+                <p>We bring together innovators, thinkers, and students passionate about shaping the future with AI. Learn, collaborate, and build with us!</p>
+                <div class="hero-buttons">
+                    <button onclick="window.location.href='about.html'">Learn More</button>
+                    <button onclick="window.location.href='contact.html'" class="secondary">Join Now</button>
+                </div>
             </div>
-        </div>
-        <div class="hero-image">
-            <img src="photos/ai-hero.jpg" alt="AI illustration">
+            <div class="hero-image">
+                <img src="photos/ai-hero.jpg" alt="AI illustration">
+            </div>
         </div>
     </section>
 
-    <!-- Features / Highlights Section -->
-    <section id="features">
-        <h2>Why Join the AI Association?</h2>
-        <div class="feature-cards">
-            <div class="feature-card">
-                <i class="fas fa-robot fa-3x"></i>
-                <h3>Hands-on AI Projects</h3>
-                <p>Work on real AI projects and gain practical experience in coding, data, and machine learning.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-chalkboard-teacher fa-3x"></i>
-                <h3>Workshops & Tutorials</h3>
-                <p>Attend workshops led by AI experts to enhance your skills and understanding of modern AI technologies.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-users fa-3x"></i>
-                <h3>Networking & Mentorship</h3>
-                <p>Connect with industry leaders, alumni, and fellow students to grow your AI network.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-trophy fa-3x"></i>
-                <h3>Competitions & Hackathons</h3>
-                <p>Participate in exciting AI challenges that promote innovation, teamwork, and creativity.</p>
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why Join the AI Association?</h2>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <i class="fas fa-robot fa-3x"></i>
+                    <h3>Hands-on AI Projects</h3>
+                    <p>Work on real AI projects and gain practical experience in coding, data, and machine learning.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chalkboard-teacher fa-3x"></i>
+                    <h3>Workshops & Tutorials</h3>
+                    <p>Attend workshops led by AI experts to enhance your skills and understanding of modern AI technologies.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users fa-3x"></i>
+                    <h3>Networking & Mentorship</h3>
+                    <p>Connect with industry leaders, alumni, and fellow students to grow your AI network.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-trophy fa-3x"></i>
+                    <h3>Competitions & Hackathons</h3>
+                    <p>Participate in exciting AI challenges that promote innovation, teamwork, and creativity.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Call to Action -->
-    <section id="cta">
-        <h2>Ready to Shape the Future with AI?</h2>
-        <p>Join the Artificial Intelligence Association today and be part of a community pushing the boundaries of technology.</p>
-        <button onclick="window.location.href='contact.html'">Sign Up</button>
+    <section id="cta" class="cta">
+        <div class="container">
+            <h2>Ready to Shape the Future with AI?</h2>
+            <p>Join the Artificial Intelligence Association today and be part of a community pushing the boundaries of technology.</p>
+            <button onclick="window.location.href='contact.html'">Sign Up</button>
+        </div>
     </section>
 
-    <!-- Testimonials / Members Section -->
-    <section id="members">
-        <h2>Meet Our Members</h2>
-        <div class="member-cards">
-            <div class="member-card">
-                <img src="photos/member1.jpg" alt="Member Photo">
-                <h3>Meisam Shayeghmoradi</h3>
-                <p>President - Leading AI initiatives and projects across campus.</p>
-            </div>
-            <div class="member-card">
-                <img src="photos/member2.jpg" alt="Member Photo">
-                <h3>William Valentine</h3>
-                <p>Technical Lead - Oversees AI workshops and technical support.</p>
-            </div>
-            <div class="member-card">
-                <img src="photos/member3.jpg" alt="Member Photo">
-                <h3>Thomas Stokke</h3>
-                <p>AI Support Team Lead - Guides students on AI tools and projects.</p>
+    <!-- Members Section -->
+    <section id="members" class="members">
+        <div class="container">
+            <h2 class="section-title">Meet Our Members</h2>
+            <div class="member-cards">
+                <div class="member-card">
+                    <img src="photos/member1.jpg" alt="Meisam Shayeghmoradi">
+                    <h3>Meisam Shayeghmoradi</h3>
+                    <p>President - Leading AI initiatives and projects across campus.</p>
+                </div>
+                <div class="member-card">
+                    <img src="photos/member2.jpg" alt="William Valentine">
+                    <h3>William Valentine</h3>
+                    <p>Technical Lead - Oversees AI workshops and technical support.</p>
+                </div>
+                <div class="member-card">
+                    <img src="photos/member3.jpg" alt="Thomas Stokke">
+                    <h3>Thomas Stokke</h3>
+                    <p>AI Support Team Lead - Guides students on AI tools and projects.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
+    <footer class="footer">
+        <div class="container footer-content">
             <p>&copy; 2025 Artificial Intelligence Association, University of North Dakota</p>
             <div class="social-icons">
                 <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -102,6 +113,5 @@
             </div>
         </div>
     </footer>
-
 </body>
 </html>
