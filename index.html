@@ -1,41 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Club</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Club - Home</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>🤖 Welcome to the AI Club</h1>
-    <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    <!-- Header -->
+    <header>
+        <h1>Artificial Intelligence Club</h1>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="events.html">Events</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-  <main>
-    <section class="hero">
-      <h2>Exploring Artificial Intelligence Together</h2>
-      <p>We’re a student-run club passionate about AI, machine learning, and data science. Join us to learn, build, and innovate!</p>
-      <a href="about.html" class="btn">Learn More</a>
-    </section>
+    <!-- Hero Section -->
+    <main>
+        <section id="hero" style="text-align:center; padding:3rem 1rem; background-color:#e0e0ff;">
+            <h2>Welcome to the AI Club</h2>
+            <p style="max-width:700px; margin:auto; margin-top:1rem;">
+                The University of North Dakota AI Club brings together students and faculty passionate about artificial intelligence.
+                Learn, innovate, and collaborate through workshops, projects, competitions, and more.
+            </p>
+            <button onclick="window.location.href='about.html'">Learn More About Us</button>
+        </section>
 
-    <section class="events">
-      <h2>Upcoming Events</h2>
-      <ul>
-        <li><strong>🧠 AI Bootcamp</strong> — November 2025</li>
-        <li><strong>🏆 Hackathon</strong> — January 2026</li>
-      </ul>
-    </section>
-  </main>
+        <!-- Highlights Section -->
+        <section id="highlights" style="margin-top:3rem;">
+            <h2>Why Join Our Club?</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="photos/workshop.jpg" alt="Workshops">
+                    <h3>Hands-on Workshops</h3>
+                    <p>Learn practical AI skills through interactive workshops and tutorials.</p>
+                </div>
+                <div class="project-card">
+                    <img src="photos/hackathon.jpg" alt="Hackathons">
+                    <h3>Hackathons & Competitions</h3>
+                    <p>Collaborate on exciting projects and compete in AI challenges.</p>
+                </div>
+                <div class="project-card">
+                    <img src="photos/projects.jpg" alt="Projects">
+                    <h3>Real-World Projects</h3>
+                    <p>Work on innovative projects and gain hands-on experience in AI development.</p>
+                </div>
+                <div class="project-card">
+                    <img src="photos/networking.jpg" alt="Networking">
+                    <h3>Networking & Mentorship</h3>
+                    <p>Connect with industry leaders, alumni, and experts in artificial intelligence.</p>
+                </div>
+            </div>
+        </section>
 
-  <footer id="contact">
-    <p>📬 Contact us: <a href="mailto:aiclub@example.com">aiclub@example.com</a></p>
-    <p>© 2025 AI Club</p>
-  </footer>
+        <!-- Call to Action Section -->
+        <section id="cta" style="text-align:center; margin:4rem 0;">
+            <h2>Join the AI Club Today!</h2>
+            <p>Become part of a vibrant community of innovators and AI enthusiasts.</p>
+            <button onclick="window.location.href='contact.html'">Sign Up</button>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 AI Club, University of North Dakota</p>
+    </footer>
 </body>
 </html>
