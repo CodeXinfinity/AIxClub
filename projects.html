@@ -1,45 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects | AI Club</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - AI Club</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Our Projects</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html" class="active">Projects</a>
-    </nav>
-  </header>
+    <!-- Header -->
+    <header>
+        <h1>Artificial Intelligence Club</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="events.html">Events</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-  <main>
-    <section>
-      <h2>Club Projects</h2>
-      <div class="project-list">
-        <article>
-          <h3>🗣️ Speech Emotion Recognition</h3>
-          <p>Using machine learning to identify emotions in human speech. Built with Python and TensorFlow.</p>
-        </article>
+    <!-- Projects Section -->
+    <main>
+        <section id="projects" style="padding:2rem;">
+            <h2>Our AI Projects</h2>
+            <p style="text-align:center; max-width:700px; margin:auto;">
+                The AI Club encourages members to work on real-world AI projects. These projects aim to provide practical experience, encourage collaboration, and showcase innovative solutions.
+            </p>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="photos/chatbot.jpg" alt="Chatbot Project">
+                    <h3>AI Chatbot</h3>
+                    <p>Developing an intelligent chatbot to assist students and faculty with common tasks.</p>
+                </div>
+                <div class="project-card">
+                    <img src="photos/image_recognition.jpg" alt="Image Recognition">
+                    <h3>Image Recognition System</h3>
+                    <p>Building a system to identify objects in images using neural networks.</p>
+                </div>
+                <div class="project-card">
+                    <img src="photos/generative_ai.jpg" alt="Generative AI">
+                    <h3>Generative AI Tools</h3>
+                    <p>Creating AI tools fully owned by UND for secure and customized applications.</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
-        <article>
-          <h3>📸 AI Art Generator</h3>
-          <p>An AI model that creates digital artwork based on text prompts. Powered by Stable Diffusion API.</p>
-        </article>
-
-        <article>
-          <h3>🧬 Medical Diagnosis Assistant</h3>
-          <p>A project exploring how AI can assist doctors in predicting diseases using patient data.</p>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p><a href="index.html">← Back to Home</a></p>
-  </footer>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 AI Club, University of North Dakota</p>
+    </footer>
 </body>
 </html>
