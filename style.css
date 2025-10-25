@@ -1,0 +1,96 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #fafafa;
+  color: #222;
+  margin: 0;
+}
+
+header {
+  background: #0b132b;
+  color: white;
+  text-align: center;
+  padding: 1.2em 0;
+}
+
+nav a {
+  color: #61dafb;
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a.active {
+  text-decoration: underline;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 2em;
+}
+
+h1, h2, h3 {
+  color: #1a1a1a;
+}
+
+.hero {
+  background: linear-gradient(135deg, #61dafb, #0077ff);
+  color: white;
+  padding: 2em;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  background: white;
+  color: #0077ff;
+  padding: 0.6em 1.2em;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.events ul {
+  list-style: none;
+  padding: 0;
+}
+
+.events li {
+  background: #e9f1ff;
+  padding: 0.8em;
+  margin-bottom: 0.5em;
+  border-radius: 6px;
+}
+
+.members {
+  list-style: none;
+  padding: 0;
+}
+
+.members li {
+  background: #f1f1f1;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  border-radius: 6px;
+}
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1em;
+}
+
+.project-list article {
+  background: #f9f9f9;
+  padding: 1em;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+footer {
+  text-align: center;
+  background: #0b132b;
+  color: white;
+  padding: 1em;
+}
