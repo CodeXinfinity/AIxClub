@@ -3,52 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - AI Club</title>
+    <title>Upcoming Projects | AI Association</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header -->
     <header>
-        <h1>Artificial Intelligence Club</h1>
+        <div class="logo">AI Association</div>
         <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
-            <a href="events.html">Events</a>
             <a href="projects.html" class="active">Projects</a>
+            <a href="events.html">Events</a>
+            <a href="marketplace.html">Marketplace</a>
+            <a href="donations.html">Donations</a>
             <a href="contact.html">Contact</a>
+            
         </nav>
     </header>
 
-    <!-- Projects Section -->
-    <main>
-        <section id="projects" style="padding:2rem;">
-            <h2>Our AI Projects</h2>
-            <p style="text-align:center; max-width:700px; margin:auto;">
-                The AI Club encourages members to work on real-world AI projects. These projects aim to provide practical experience, encourage collaboration, and showcase innovative solutions.
-            </p>
-            <div class="project-grid">
-                <div class="project-card">
-                    <img src="photos/chatbot.jpg" alt="Chatbot Project">
-                    <h3>AI Chatbot</h3>
-                    <p>Developing an intelligent chatbot to assist students and faculty with common tasks.</p>
-                </div>
-                <div class="project-card">
-                    <img src="photos/image_recognition.jpg" alt="Image Recognition">
-                    <h3>Image Recognition System</h3>
-                    <p>Building a system to identify objects in images using neural networks.</p>
-                </div>
-                <div class="project-card">
-                    <img src="photos/generative_ai.jpg" alt="Generative AI">
-                    <h3>Generative AI Tools</h3>
-                    <p>Creating AI tools fully owned by UND for secure and customized applications.</p>
-                </div>
-            </div>
-        </section>
-    </main>
+    <section id="projects-hero">
+        <h1>Upcoming AI Projects</h1>
+        <p>Explore projects, collaborate with peers, and register to participate in our AI initiatives.</p>
+    </section>
 
-    <!-- Footer -->
+    <section id="project-cards">
+        <div class="card">
+            <img src="photos/project1.jpg" alt="Project Image">
+            <h3>AI Chatbot Development</h3>
+            <p>Develop a generative AI chatbot to assist students on campus.</p>
+            <button onclick="window.location.href='register.html'">Register</button>
+        </div>
+        <div class="card">
+            <img src="photos/project2.jpg" alt="Project Image">
+            <h3>Predictive Analytics for Research</h3>
+            <p>Use AI to analyze trends in academic research and optimize outcomes.</p>
+            <button onclick="window.location.href='register.html'">Register</button>
+        </div>
+        <div class="card">
+            <img src="photos/project3.jpg" alt="Project Image">
+            <h3>AI Art Generation</h3>
+            <p>Create innovative AI-generated art for exhibitions and contests.</p>
+            <button onclick="window.location.href='register.html'">Register</button>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2025 AI Club, University of North Dakota</p>
+        <p>&copy; 2025 Artificial Intelligence Association</p>
     </footer>
 </body>
 </html>
