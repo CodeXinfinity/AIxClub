@@ -7,7 +7,43 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Team Section Styling */
+        /* =====================
+           About Page Custom Styles
+        ===================== */
+        #about {
+            text-align: center;
+            max-width: 800px;
+            margin: 2rem auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        #about h2 {
+            margin-bottom: 1rem;
+            color: #1e1e2f;
+        }
+
+        #about p {
+            font-size: 1.05rem;
+            color: #444;
+            line-height: 1.8;
+        }
+
+        /* =====================
+           Team Section Styling
+        ===================== */
+        #team {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        #team h2 {
+            color: #1e1e2f;
+            margin-bottom: 1.5rem;
+        }
+
         .team-grid {
             display: flex;
             flex-wrap: wrap;
@@ -18,32 +54,64 @@
 
         .team-member {
             text-align: center;
-            width: 200px;
+            width: 220px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .team-member:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.2);
         }
 
         .team-member img {
-            width: 200px;          /* same width */
-            height: 200px;         /* same height */
-            object-fit: cover;     /* keeps proportions while cropping edges */
-            border-radius: 10px;   /* rounded corners (optional) */
-            border: 2px solid #ccc; /* border for consistency (optional) */
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #ccc;
+            background-color: #eee; /* helps visualize if image not loading */
         }
 
-        .team-member img:hover {
-            transform: scale(1.05);
-            transition: 0.3s ease;
+        .team-member h3 {
+            margin-top: 0.75rem;
+            font-size: 1.1rem;
+            color: #1e1e2f;
+        }
+
+        .team-member p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .team-grid {
+                gap: 20px;
+            }
+            .team-member {
+                width: 180px;
+            }
+            .team-member img {
+                width: 180px;
+                height: 180px;
+            }
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header>
         <h1>Artificial Intelligence Club</h1>
         <nav>
             <a href="index.html">Home</a>
-            <a href="about.html">About</a>
+            <a href="about.html" class="active">About</a>
             <a href="projects.html">Projects</a>
-            <a href="marketplace.html" class="active">Marketplace</a>
+            <a href="marketplace.html">Marketplace</a>
             <a href="donations.html">Donations</a>
             <a href="contact.html">Contact</a>
         </nav>
@@ -53,10 +121,11 @@
     <main>
         <section id="about">
             <h2>About Our Club</h2>
-            <p style="text-align:center; max-width:800px; margin:auto;">
-                The AI Club at the University of North Dakota brings together students and faculty passionate about artificial intelligence. 
-                Our mission is to educate, innovate, and empower members with practical AI knowledge and tools, fostering collaboration across disciplines.
-                We focus on hands-on projects, workshops, and research opportunities to prepare members for AI-driven careers and leadership.
+            <p>
+                The AI Club at the University of North Dakota brings together students and faculty who are passionate about artificial intelligence. 
+                Our mission is to educate, innovate, and empower members with practical AI knowledge and tools—fostering collaboration across disciplines.
+                <br><br>
+                We focus on hands-on projects, workshops, and research opportunities to prepare members for AI-driven careers and leadership in technology.
             </p>
         </section>
 
