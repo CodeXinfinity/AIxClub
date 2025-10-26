@@ -1,56 +1,117 @@
-/* Scroll to top button */
-#scrollTopBtn {
-    display: none;
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 1000;
-    background-color: #ff9800;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    padding: 12px 15px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-#scrollTopBtn:hover {
-    background-color: #e68a00;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artificial Intelligence Association</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">AI Association</div>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="marketplace.html" class="active">Marketplace</a>
+                <a href="donations.html">Donations</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-/* Fade-in animation */
-.fade {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-.fade.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container hero-container">
+            <div class="hero-text">
+                <h1>Welcome to the Artificial Intelligence Association</h1>
+                <p>We bring together innovators, thinkers, and students passionate about shaping the future with AI. Learn, collaborate, and build with us!</p>
+                <div class="hero-buttons">
+                    <button onclick="window.location.href='about.html'">Learn More</button>
+                    <button onclick="window.location.href='contact.html'" class="secondary">Join Now</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="photos/ai-hero.jpg" alt="AI illustration">
+            </div>
+        </div>
+    </section>
 
-/* Mobile navigation */
-.menu-toggle {
-    display: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: white;
-}
-@media (max-width: 768px) {
-    .nav {
-        display: none;
-        flex-direction: column;
-        background-color: #1e1e2f;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 200px;
-        padding: 1rem;
-    }
-    .nav.active {
-        display: flex;
-    }
-    .menu-toggle {
-        display: block;
-    }
-}
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why Join the AI Association?</h2>
+            <div class="feature-cards">
+                <article class="feature-card">
+                    <i class="fas fa-robot fa-3x"></i>
+                    <h3>Hands-on AI Projects</h3>
+                    <p>Work on real AI projects and gain practical experience in coding, data, and machine learning.</p>
+                </article>
+                <article class="feature-card">
+                    <i class="fas fa-chalkboard-teacher fa-3x"></i>
+                    <h3>Workshops & Tutorials</h3>
+                    <p>Attend workshops led by AI experts to enhance your skills and understanding of modern AI technologies.</p>
+                </article>
+                <article class="feature-card">
+                    <i class="fas fa-users fa-3x"></i>
+                    <h3>Networking & Mentorship</h3>
+                    <p>Connect with industry leaders, alumni, and fellow students to grow your AI network.</p>
+                </article>
+                <article class="feature-card">
+                    <i class="fas fa-trophy fa-3x"></i>
+                    <h3>Competitions & Hackathons</h3>
+                    <p>Participate in exciting AI challenges that promote innovation, teamwork, and creativity.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="cta" class="cta">
+        <div class="container">
+            <h2>Ready to Shape the Future with AI?</h2>
+            <p>Join the Artificial Intelligence Association today and be part of a community pushing the boundaries of technology.</p>
+            <button onclick="window.location.href='contact.html'">Sign Up</button>
+        </div>
+    </section>
+
+    <!-- Members Section -->
+    <section id="members" class="members">
+        <div class="container">
+            <h2 class="section-title">Meet Our Members</h2>
+            <div class="member-cards">
+                <article class="member-card">
+                    <img src="photos/Meisam.png" alt="Meisam Shayeghmoradi">
+                    <h3>Meisam Shayeghmoradi</h3>
+                    <p>President - Leading AI initiatives and projects across campus.</p>
+                </article>
+                <article class="member-card">
+                    <img src="photos/William.png" alt="William Valentine">
+                    <h3>William Valentine</h3>
+                    <p>Technical Lead - Oversees AI workshops and technical support.</p>
+                </article>
+                <article class="Stokke.png">
+                    <img src="photos/member3.jpg" alt="Thomas Stokke">
+                    <h3>Thomas Stokke</h3>
+                    <p>AI Support Team Lead - Guides students on AI tools and projects.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <p>&copy; 2025 Artificial Intelligence Association, University of North Dakota</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
