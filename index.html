@@ -1,167 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artificial Intelligence Association</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artificial Intelligence Association</title>
 
-    <!-- CSS Styles -->
-    <link rel="stylesheet" href="style.css">
+  <!-- CSS Styles -->
+  <link rel="stylesheet" href="style.css" />
 
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Font Awesome for Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
 
-    <!-- Favicon (Optional) -->
-    <link rel="icon" href="photos/favicon.png" type="image/png">
+  <!-- AOS Animation Library -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+  />
 
-    <!-- AOS Animation Library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="icon" href="photos/favicon.png" type="image/png" />
 </head>
 <body>
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">AI Association</div>
+      <nav class="nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="donations.html">Donations</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- ===== HEADER ===== -->
-    <header class="header">
-        <div class="container header-container">
-            <div class="logo">AI Association</div>
-            <nav class="nav">
-                <a href="index.html" class="active">Home</a>
-                <a href="about.html">About</a>
-                <a href="projects.html">Projects</a>
-                <a href="marketplace.html">Marketplace</a>
-                <a href="donations.html">Donations</a>
-                <a href="contact.html">Contact</a>
-            </nav>
+  <!-- ===== HERO SECTION ===== -->
+  <section id="hero" class="hero">
+    <div class="container hero-container" data-aos="fade-up">
+      <div class="hero-content">
+        <h1>Welcome to the <span>Artificial Intelligence Association</span></h1>
+        <p>
+          We bring together innovators, thinkers, and students passionate about
+          shaping the future with AI. Learn, collaborate, and build with us!
+        </p>
+
+        <div class="hero-buttons">
+          <button class="btn-primary" onclick="window.location.href='about.html'">
+            Learn More
+          </button>
+          <button class="btn-secondary" onclick="window.location.href='contact.html'">
+            Join Now
+          </button>
         </div>
-    </header>
+      </div>
 
-    <!-- ===== HERO SECTION ===== -->
-    <section id="hero" class="hero">
-        <div class="container hero-container" data-aos="fade-up">
-            <div class="hero-text">
-                <h1>Welcome to the Artificial Intelligence Association</h1>
-                <p>We bring together innovators, thinkers, and students passionate about shaping the future with AI. Learn, collaborate, and build with us!</p>
-                <div class="hero-buttons">
-                    <button class="btn-primary" onclick="window.location.href='about.html'">Learn More</button>
-                    <button class="btn-secondary" onclick="window.location.href='contact.html'">Join Now</button>
-                </div>
-            </div>
-            <div class="hero-image" data-aos="zoom-in">
-                <img src="photos/ai-hero.jpg" alt="Artificial Intelligence illustration">
-            </div>
-        </div>
-    </section>
+      <div class="hero-image" data-aos="zoom-in">
+        <img src="photos/ai-hero.jpg" alt="Artificial Intelligence illustration" />
+      </div>
+    </div>
+  </section>
 
-    <!-- ===== FEATURES SECTION ===== -->
-    <section id="features" class="features">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-down">Why Join the AI Association?</h2>
-            <div class="feature-cards">
+  <!-- ===== ABOUT SECTION (NEW CARD STYLE) ===== -->
+  <section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+      <div class="content-card">
+        <h2 class="section-title">About Us</h2>
+        <p>
+          The Artificial Intelligence Association is a student-led organization
+          dedicated to promoting innovation, collaboration, and education in
+          artificial intelligence. We connect passionate individuals who are
+          eager to explore the capabilities of AI through real-world projects,
+          mentorship, and events.
+        </p>
+      </div>
+    </div>
+  </section>
 
-                <article class="feature-card" data-aos="flip-left">
-                    <i class="fas fa-robot fa-3x"></i>
-                    <h3>Hands-on AI Projects</h3>
-                    <p>Work on real AI projects and gain practical experience in coding, data analysis, and machine learning.</p>
-                </article>
+  <!-- ===== FEATURES SECTION ===== -->
+  <section id="features" class="features">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-down">Why Join the AI Association?</h2>
+      <div class="feature-cards">
+        <article class="feature-card" data-aos="fade-up">
+          <i class="fas fa-robot fa-3x"></i>
+          <h3>Hands-on AI Projects</h3>
+          <p>
+            Work on real AI projects and gain practical experience in coding,
+            data analysis, and machine learning.
+          </p>
+        </article>
 
-                <article class="feature-card" data-aos="flip-left" data-aos-delay="100">
-                    <i class="fas fa-chalkboard-teacher fa-3x"></i>
-                    <h3>Workshops & Tutorials</h3>
-                    <p>Attend expert-led workshops designed to enhance your understanding of modern AI technologies and tools.</p>
-                </article>
+        <article class="feature-card" data-aos="fade-up" data-aos-delay="100">
+          <i class="fas fa-chalkboard-teacher fa-3x"></i>
+          <h3>Workshops & Tutorials</h3>
+          <p>
+            Attend expert-led workshops designed to enhance your understanding
+            of modern AI technologies and tools.
+          </p>
+        </article>
 
-                <article class="feature-card" data-aos="flip-left" data-aos-delay="200">
-                    <i class="fas fa-users fa-3x"></i>
-                    <h3>Networking & Mentorship</h3>
-                    <p>Connect with professionals, alumni, and peers who share your passion for artificial intelligence and innovation.</p>
-                </article>
+        <article class="feature-card" data-aos="fade-up" data-aos-delay="200">
+          <i class="fas fa-users fa-3x"></i>
+          <h3>Networking & Mentorship</h3>
+          <p>
+            Connect with professionals, alumni, and peers who share your passion
+            for artificial intelligence and innovation.
+          </p>
+        </article>
 
-                <article class="feature-card" data-aos="flip-left" data-aos-delay="300">
-                    <i class="fas fa-trophy fa-3x"></i>
-                    <h3>Competitions & Hackathons</h3>
-                    <p>Join exciting AI challenges that promote creativity, teamwork, and innovation while testing your skills.</p>
-                </article>
+        <article class="feature-card" data-aos="fade-up" data-aos-delay="300">
+          <i class="fas fa-trophy fa-3x"></i>
+          <h3>Competitions & Hackathons</h3>
+          <p>
+            Join exciting AI challenges that promote creativity, teamwork, and
+            innovation while testing your skills.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-            </div>
-        </div>
-    </section>
+  <!-- ===== CTA SECTION ===== -->
+  <section id="cta" class="cta" data-aos="fade-up">
+    <div class="container">
+      <div class="content-card cta-card">
+        <h2>Ready to Shape the Future with AI?</h2>
+        <p>
+          Join the Artificial Intelligence Association today and become part of
+          a community driving innovation and discovery.
+        </p>
+        <button class="btn-primary" onclick="window.location.href='contact.html'">
+          Sign Up
+        </button>
+      </div>
+    </div>
+  </section>
 
-    <!-- ===== CALL TO ACTION ===== -->
-    <section id="cta" class="cta" data-aos="fade-up">
-        <div class="container">
-            <h2>Ready to Shape the Future with AI?</h2>
-            <p>Join the Artificial Intelligence Association today and become part of a community driving innovation and discovery.</p>
-            <button class="btn-primary" onclick="window.location.href='contact.html'">Sign Up</button>
-        </div>
-    </section>
+  <!-- ===== MEMBERS SECTION ===== -->
+  <section id="members" class="members">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-down">Meet Our Members</h2>
+      <div class="member-cards">
+        <article class="member-card" data-aos="zoom-in">
+          <img src="photos/member1.jpg" alt="Meisam Shayeghmoradi" />
+          <div class="member-info">
+            <h3>Meisam Shayeghmoradi</h3>
+            <p>President</p>
+            <p>Leading AI initiatives and projects across campus.</p>
+          </div>
+        </article>
 
-    <!-- ===== MEMBERS SECTION ===== -->
-    <section id="members" class="members">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-down">Meet Our Members</h2>
-            <div class="member-cards">
+        <article class="member-card" data-aos="zoom-in" data-aos-delay="100">
+          <img src="photos/member2.jpg" alt="William Valentine" />
+          <div class="member-info">
+            <h3>William Valentine</h3>
+            <p>Technical Lead</p>
+            <p>Oversees AI workshops and provides technical support.</p>
+          </div>
+        </article>
 
-                <article class="member-card" data-aos="zoom-in">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <img src="photos/member1.jpg" alt="Meisam Shayeghmoradi">
-                            <h3>Meisam Shayeghmoradi</h3>
-                            <p>President</p>
-                        </div>
-                        <div class="card-back">
-                            <p>Leading AI initiatives and projects across campus.</p>
-                        </div>
-                    </div>
-                </article>
+        <article class="member-card" data-aos="zoom-in" data-aos-delay="200">
+          <img src="photos/member3.jpg" alt="Thomas Stokke" />
+          <div class="member-info">
+            <h3>Thomas Stokke</h3>
+            <p>AI Support Lead</p>
+            <p>Guides students in AI tools and project development.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-                <article class="member-card" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <img src="photos/member2.jpg" alt="William Valentine">
-                            <h3>William Valentine</h3>
-                            <p>Technical Lead</p>
-                        </div>
-                        <div class="card-back">
-                            <p>Oversees AI workshops and provides technical support.</p>
-                        </div>
-                    </div>
-                </article>
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <p>&copy; 2025 Artificial Intelligence Association, University of North Dakota</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </footer>
 
-                <article class="member-card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <img src="photos/member3.jpg" alt="Thomas Stokke">
-                            <h3>Thomas Stokke</h3>
-                            <p>AI Support Lead</p>
-                        </div>
-                        <div class="card-back">
-                            <p>Guides students in AI tools and project development.</p>
-                        </div>
-                    </div>
-                </article>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="footer">
-        <div class="container footer-container">
-            <p>&copy; 2025 Artificial Intelligence Association, University of North Dakota</p>
-            <div class="social-icons">
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
-    </script>
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
 </body>
 </html>
