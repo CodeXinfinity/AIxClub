@@ -208,3 +208,61 @@ footer {
         margin: 0.5rem 0;
     }
 }
+
+
+/* Scroll to top button */
+#scrollTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 12px 15px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#scrollTopBtn:hover {
+    background-color: #e68a00;
+}
+
+/* Fade-in animation */
+.fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile navigation */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: white;
+}
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+        flex-direction: column;
+        background-color: #1e1e2f;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 1rem;
+    }
+    .nav.active {
+        display: flex;
+    }
+    .menu-toggle {
+        display: block;
+    }
+}
