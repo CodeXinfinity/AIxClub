@@ -5,64 +5,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Artificial Intelligence Association</title>
   <link rel="icon" href="photos/favicon.png" type="image/png">
+
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
   <style>
-    /* ===== GENERAL STYLES ===== */
+    /* ===== GENERAL ===== */
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f0f2f5;
-      color: #333;
+      background: #0a0a0a;
+      color: #fff;
+      overflow-x: hidden;
     }
     a { text-decoration: none; color: inherit; }
-    header, footer { background: #1f1f1f; color: white; }
-    h1, h2, h3 { margin: 0.5em 0; }
 
     /* ===== HEADER ===== */
+    header {
+      background: rgba(0,0,0,0.8);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
     .header-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 15px 30px;
     }
-    .logo { font-size: 1.5em; font-weight: bold; color: #4caf50; }
+    .logo {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #4caf50;
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
     .nav a {
       margin-left: 20px;
       font-weight: 500;
-      color: white;
+      color: #fff;
     }
     .nav a:hover { text-decoration: underline; }
 
-    /* ===== HERO SECTION ===== */
+    /* ===== HERO ===== */
     .hero {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 80px 20px;
+      padding: 100px 20px;
       background: linear-gradient(135deg, #4caf50, #1e88e5);
-      color: white;
+      position: relative;
     }
-    .hero input[type="text"] {
-      width: 300px;
-      padding: 12px;
-      border-radius: 25px;
-      border: none;
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.3em;
+      margin-bottom: 20px;
+    }
+    .search-box {
+      display: flex;
+      justify-content: center;
       margin-top: 20px;
+    }
+    .search-box input {
+      width: 350px;
+      padding: 15px 20px;
+      border-radius: 30px 0 0 30px;
+      border: none;
       font-size: 16px;
       outline: none;
     }
-    .hero button {
-      padding: 12px 25px;
-      margin-left: 10px;
+    .search-box button {
+      padding: 15px 25px;
       border: none;
-      border-radius: 25px;
+      border-radius: 0 30px 30px 0;
       background-color: #ff9800;
       color: white;
       font-weight: bold;
       cursor: pointer;
+      transition: 0.3s;
     }
-    .hero button:hover { background-color: #e68900; }
+    .search-box button:hover { background-color: #e68900; }
 
     /* ===== SECTIONS ===== */
     section {
@@ -71,17 +103,22 @@
       margin: 0 auto;
     }
     .section-title {
-      font-size: 2em;
-      margin-bottom: 20px;
+      font-size: 2.5em;
+      margin-bottom: 40px;
       text-align: center;
-      color: #1f1f1f;
+      color: #4caf50;
     }
-    .cards { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
 
-    /* ===== FLIP CARD ===== */
+    /* ===== CARDS ===== */
     .flip-card {
       background-color: transparent;
-      width: 250px;
+      width: 280px;
       height: 300px;
       perspective: 1000px;
     }
@@ -92,36 +129,51 @@
       text-align: center;
       transition: transform 0.6s;
       transform-style: preserve-3d;
-      border-radius: 10px;
+      border-radius: 20px;
     }
     .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
     .flip-card-front, .flip-card-back {
       position: absolute;
       width: 100%;
       height: 100%;
-      border-radius: 10px;
+      border-radius: 20px;
       backface-visibility: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      padding: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
     }
-    .flip-card-front { background-color: #4caf50; color: white; }
-    .flip-card-back { background-color: #ffffff; color: #333; transform: rotateY(180deg); }
+    .flip-card-front { background: #4caf50; color: white; font-weight: bold; }
+    .flip-card-back { background: #ffffff; color: #333; transform: rotateY(180deg); font-weight: normal; }
 
     /* ===== FOOTER ===== */
-    .footer-container {
+    footer {
+      background: #1f1f1f;
       text-align: center;
-      padding: 20px;
+      padding: 30px;
     }
-    .footer-container a { margin: 0 10px; color: white; font-size: 1.2em; }
+    footer a { margin: 0 10px; color: white; font-size: 1.2em; }
+
+    /* ===== FIREWORKS ===== */
+    .firework {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      pointer-events: none;
+      background: radial-gradient(circle, #ff0 0%, #f00 70%);
+      animation: explode 1s ease-out forwards;
+    }
+    @keyframes explode {
+      0% { transform: scale(0); opacity: 1; }
+      100% { transform: scale(20); opacity: 0; }
+    }
 
     @media(max-width: 768px) {
       .cards { flex-direction: column; align-items: center; }
-      .hero { padding: 50px 10px; }
-      .hero input[type="text"] { width: 200px; }
+      .search-box input { width: 200px; }
     }
   </style>
 </head>
@@ -130,7 +182,7 @@
   <!-- ===== HEADER ===== -->
   <header>
     <div class="header-container">
-      <div class="logo">AI Association</div>
+      <div class="logo"><img src="photos/favicon.png" alt="logo"> AI Association</div>
       <nav class="nav">
         <a href="#hero">Home</a>
         <a href="#about">About</a>
@@ -143,11 +195,13 @@
 
   <!-- ===== HERO ===== -->
   <section id="hero" class="hero">
-    <h1>Welcome to the Artificial Intelligence Association</h1>
-    <p>Explore AI knowledge, innovate, and collaborate with passionate students.</p>
-    <div>
-      <input type="text" id="search-input" placeholder="Search AI Knowledge...">
-      <button onclick="searchAI()">Search OpenAI</button>
+    <h1>Artificial Intelligence Association</h1>
+    <p>Ask AI, Innovate, Collaborate, and Grow!</p>
+
+    <!-- Search/Ask Box -->
+    <div class="search-box">
+      <input type="text" id="question" placeholder="Type your question here...">
+      <button onclick="sendQuestion()">Send</button>
     </div>
   </section>
 
@@ -155,7 +209,7 @@
   <section id="about">
     <h2 class="section-title">About Us</h2>
     <p style="text-align:center; max-width:800px; margin:0 auto;">
-      The Artificial Intelligence Association is a student-led organization dedicated to AI innovation, collaboration, and learning. We host projects, workshops, hackathons, and mentorship programs to help members grow in the field of AI.
+      The Artificial Intelligence Association is a student-led organization focused on AI innovation, education, and community projects. Join our workshops, hackathons, and mentorship programs to elevate your skills.
     </p>
   </section>
 
@@ -165,32 +219,20 @@
     <div class="cards">
       <div class="flip-card">
         <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <h3>AI Chatbot</h3>
-          </div>
-          <div class="flip-card-back">
-            <p>We build chatbots using NLP models to interact intelligently with users.</p>
-          </div>
+          <div class="flip-card-front">AI Chatbot</div>
+          <div class="flip-card-back">Building NLP chatbots to interact with users intelligently.</div>
         </div>
       </div>
       <div class="flip-card">
         <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <h3>ML Models</h3>
-          </div>
-          <div class="flip-card-back">
-            <p>Developing machine learning models for data prediction and analysis.</p>
-          </div>
+          <div class="flip-card-front">ML Models</div>
+          <div class="flip-card-back">Creating machine learning models for predictive analytics.</div>
         </div>
       </div>
       <div class="flip-card">
         <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <h3>AI Robotics</h3>
-          </div>
-          <div class="flip-card-back">
-            <p>Creating autonomous robots powered by AI for real-world applications.</p>
-          </div>
+          <div class="flip-card-front">AI Robotics</div>
+          <div class="flip-card-back">Designing autonomous robots powered by AI technologies.</div>
         </div>
       </div>
     </div>
@@ -202,35 +244,20 @@
     <div class="cards">
       <div class="flip-card">
         <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <h3>Meisam Shayeghmoradi</h3>
-            <p>President</p>
-          </div>
-          <div class="flip-card-back">
-            <p>Leads AI initiatives and projects across campus.</p>
-          </div>
+          <div class="flip-card-front">Meisam Shayeghmoradi<br>President</div>
+          <div class="flip-card-back">Leads AI initiatives and projects across campus.</div>
         </div>
       </div>
       <div class="flip-card">
         <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <h3>William Valentine</h3>
-            <p>Technical Lead</p>
-          </div>
-          <div class="flip-card-back">
-            <p>Oversees workshops and technical support.</p>
-          </div>
+          <div class="flip-card-front">William Valentine<br>Technical Lead</div>
+          <div class="flip-card-back">Oversees workshops and technical support.</div>
         </div>
       </div>
       <div class="flip-card">
         <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <h3>Thomas Stokke</h3>
-            <p>AI Support Lead</p>
-          </div>
-          <div class="flip-card-back">
-            <p>Guides students in AI tools and project development.</p>
-          </div>
+          <div class="flip-card-front">Thomas Stokke<br>AI Support Lead</div>
+          <div class="flip-card-back">Guides students in AI tools and project development.</div>
         </div>
       </div>
     </div>
@@ -239,34 +266,40 @@
   <!-- ===== CONTACT ===== -->
   <section id="contact">
     <h2 class="section-title">Contact Us</h2>
-    <p style="text-align:center;">Email: <a href="mailto:info@aiassociation.com">info@aiassociation.com</a></p>
+    <p style="text-align:center;">Email: <a href="mailto:abc@gmail.com">abc@gmail.com</a></p>
   </section>
 
   <!-- ===== FOOTER ===== -->
   <footer>
-    <div class="footer-container">
-      <p>&copy; 2025 Artificial Intelligence Association</p>
-      <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      <a href="#"><i class="fab fa-github"></i> GitHub</a>
-      <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
-    </div>
+    <p>&copy; 2025 Artificial Intelligence Association</p>
+    <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    <a href="#"><i class="fab fa-github"></i> GitHub</a>
+    <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
   </footer>
 
   <!-- ===== SCRIPT ===== -->
   <script>
-    function searchAI() {
-      const query = document.getElementById('search-input').value.trim();
-      if(query) {
-        const url = `https://platform.openai.com/search?q=${encodeURIComponent(query)}`;
-        window.open(url, '_blank');
+    // Firework effect
+    document.addEventListener('mousemove', function(e){
+      const firework = document.createElement('div');
+      firework.className = 'firework';
+      firework.style.left = e.pageX + 'px';
+      firework.style.top = e.pageY + 'px';
+      document.body.appendChild(firework);
+      setTimeout(()=>firework.remove(), 1000);
+    });
+
+    // Send question via email
+    function sendQuestion(){
+      const question = document.getElementById('question').value.trim();
+      if(question){
+        const mailtoLink = `mailto:abc@gmail.com?subject=AI%20Question&body=${encodeURIComponent(question)}`;
+        window.location.href = mailtoLink;
       } else {
-        alert("Please enter a search term.");
+        alert('Please type your question first!');
       }
     }
   </script>
-
-  <!-- Font Awesome for social icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 </body>
 </html>
