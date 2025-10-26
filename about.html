@@ -5,6 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - AI Club</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Team Section Styling */
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .team-member {
+            text-align: center;
+            width: 200px;
+        }
+
+        .team-member img {
+            width: 200px;          /* same width */
+            height: 200px;         /* same height */
+            object-fit: cover;     /* keeps proportions while cropping edges */
+            border-radius: 10px;   /* rounded corners (optional) */
+            border: 2px solid #ccc; /* border for consistency (optional) */
+        }
+
+        .team-member img:hover {
+            transform: scale(1.05);
+            transition: 0.3s ease;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -37,26 +66,24 @@
             <div class="team-grid">
                 <!-- Member 1 -->
                 <div class="team-member">
-                    <img src="photos/meisam.jpg" alt="Meisam Shayeghmoradi">
+                    <img src="photos/Meisam.png" alt="Meisam Shayeghmoradi">
                     <h3>Meisam Shayeghmoradi</h3>
                     <p>President</p>
                 </div>
 
                 <!-- Member 2 -->
                 <div class="team-member">
-                    <img src="photos/william.jpg" alt="William Valentine">
+                    <img src="photos/William.png" alt="William Valentine">
                     <h3>William Valentine</h3>
                     <p>Vice President</p>
                 </div>
 
                 <!-- Member 3 -->
                 <div class="team-member">
-                    <img src="photos/thomas.jpg" alt="Thomas Stokke">
+                    <img src="photos/Stokke.png" alt="Thomas Stokke">
                     <h3>Thomas Stokke</h3>
                     <p>Technical Lead</p>
                 </div>
-
-                <!-- Add more members as needed -->
             </div>
         </section>
     </main>
