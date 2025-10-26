@@ -3,94 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - AI Club</title>
+    <title>Artificial Intelligence Association</title>
+
+    <!-- CSS Styles -->
     <link rel="stylesheet" href="style.css">
 
-    <style>
-        /* Team Section Styling */
-        .team-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 30px;
-        }
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        .team-member {
-            text-align: center;
-            width: 200px;
-        }
-
-        .team-member img {
-            width: 200px;          /* same width */
-            height: 200px;         /* same height */
-            object-fit: cover;     /* keeps proportions while cropping edges */
-            border-radius: 10px;   /* rounded corners (optional) */
-            border: 2px solid #ccc; /* border for consistency (optional) */
-        }
-
-        .team-member img:hover {
-            transform: scale(1.05);
-            transition: 0.3s ease;
-        }
-    </style>
+    <!-- Favicon (Optional) -->
+    <link rel="icon" href="photos/favicon.png" type="image/png">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <h1>Artificial Intelligence Club</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="projects.html">Projects</a>
-            <a href="marketplace.html" class="active">Marketplace</a>
-            <a href="donations.html">Donations</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">AI Association</div>
+            <nav class="nav">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="marketplace.html">Marketplace</a>
+                <a href="donations.html">Donations</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
     </header>
 
-    <!-- About Section -->
-    <main>
-        <section id="about">
-            <h2>About Our Club</h2>
-            <p style="text-align:center; max-width:800px; margin:auto;">
-                The AI Club at the University of North Dakota brings together students and faculty passionate about artificial intelligence. 
-                Our mission is to educate, innovate, and empower members with practical AI knowledge and tools, fostering collaboration across disciplines.
-                We focus on hands-on projects, workshops, and research opportunities to prepare members for AI-driven careers and leadership.
-            </p>
-        </section>
-
-        <!-- Team Section -->
-        <section id="team">
-            <h2>Meet the Team</h2>
-            <div class="team-grid">
-                <!-- Member 1 -->
-                <div class="team-member">
-                    <img src="photos/Meisam.png" alt="Meisam Shayeghmoradi">
-                    <h3>Meisam Shayeghmoradi</h3>
-                    <p>President</p>
-                </div>
-
-                <!-- Member 2 -->
-                <div class="team-member">
-                    <img src="photos/William.png" alt="William Valentine">
-                    <h3>William Valentine</h3>
-                    <p>Vice President</p>
-                </div>
-
-                <!-- Member 3 -->
-                <div class="team-member">
-                    <img src="photos/Stokke.png" alt="Thomas Stokke">
-                    <h3>Thomas Stokke</h3>
-                    <p>Technical Lead</p>
+    <!-- ===== HERO SECTION ===== -->
+    <section id="hero" class="hero">
+        <div class="container hero-container">
+            <div class="hero-text">
+                <h1>Welcome to the Artificial Intelligence Association</h1>
+                <p>We bring together innovators, thinkers, and students passionate about shaping the future with AI. Learn, collaborate, and build with us!</p>
+                <div class="hero-buttons">
+                    <button onclick="window.location.href='about.html'">Learn More</button>
+                    <button onclick="window.location.href='contact.html'" class="secondary">Join Now</button>
                 </div>
             </div>
-        </section>
-    </main>
+            <div class="hero-image">
+                <img src="photos/ai-hero.jpg" alt="Artificial Intelligence illustration">
+            </div>
+        </div>
+    </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 AI Club, University of North Dakota</p>
+    <!-- ===== FEATURES SECTION ===== -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why Join the AI Association?</h2>
+            <div class="feature-cards">
+
+                <article class="feature-card">
+                    <i class="fas fa-robot fa-3x"></i>
+                    <h3>Hands-on AI Projects</h3>
+                    <p>Work on real AI projects and gain practical experience in coding, data analysis, and machine learning.</p>
+                </article>
+
+                <article class="feature-card">
+                    <i class="fas fa-chalkboard-teacher fa-3x"></i>
+                    <h3>Workshops & Tutorials</h3>
+                    <p>Attend expert-led workshops designed to enhance your understanding of modern AI technologies and tools.</p>
+                </article>
+
+                <article class="feature-card">
+                    <i class="fas fa-users fa-3x"></i>
+                    <h3>Networking & Mentorship</h3>
+                    <p>Connect with professionals, alumni, and peers who share your passion for artificial intelligence and innovation.</p>
+                </article>
+
+                <article class="feature-card">
+                    <i class="fas fa-trophy fa-3x"></i>
+                    <h3>Competitions & Hackathons</h3>
+                    <p>Join exciting AI challenges that promote creativity, teamwork, and innovation while testing your skills.</p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CALL TO ACTION ===== -->
+    <section id="cta" class="cta">
+        <div class="container">
+            <h2>Ready to Shape the Future with AI?</h2>
+            <p>Join the Artificial Intelligence Association today and become part of a community driving innovation and discovery.</p>
+            <button onclick="window.location.href='contact.html'">Sign Up</button>
+        </div>
+    </section>
+
+    <!-- ===== MEMBERS SECTION ===== -->
+    <section id="members" class="members">
+        <div class="container">
+            <h2 class="section-title">Meet Our Members</h2>
+            <div class="member-cards">
+
+                <article class="member-card">
+                    <img src="photos/member1.jpg" alt="Photo of Meisam Shayeghmoradi">
+                    <h3>Meisam Shayeghmoradi</h3>
+                    <p>President — Leading AI initiatives and projects across campus.</p>
+                </article>
+
+                <article class="member-card">
+                    <img src="photos/member2.jpg" alt="Photo of William Valentine">
+                    <h3>William Valentine</h3>
+                    <p>Technical Lead — Oversees AI workshops and provides technical support.</p>
+                </article>
+
+                <article class="member-card">
+                    <img src="photos/member3.jpg" alt="Photo of Thomas Stokke">
+                    <h3>Thomas Stokke</h3>
+                    <p>AI Support Team Lead — Guides students in AI tools and project development.</p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <p>&copy; 2025 Artificial Intelligence Association, University of North Dakota</p>
+            <div class="social-icons">
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
     </footer>
+
 </body>
 </html>
