@@ -17,12 +17,13 @@
       background: #0a0a0a;
       color: #fff;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
     a { text-decoration: none; color: inherit; }
 
     /* ===== HEADER ===== */
     header {
-      background: rgba(0,0,0,0.8);
+      background: rgba(0,0,0,0.85);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -49,8 +50,9 @@
       margin-left: 20px;
       font-weight: 500;
       color: #fff;
+      transition: 0.3s;
     }
-    .nav a:hover { text-decoration: underline; }
+    .nav a:hover { color: #4caf50; }
 
     /* ===== HERO ===== */
     .hero {
@@ -59,22 +61,34 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 100px 20px;
+      padding: 120px 20px;
       background: linear-gradient(135deg, #4caf50, #1e88e5);
       position: relative;
+      overflow: hidden;
     }
     .hero h1 {
       font-size: 3em;
       margin-bottom: 10px;
+      animation: fadeInDown 1s ease forwards;
     }
     .hero p {
       font-size: 1.3em;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      animation: fadeInUp 1s ease forwards;
+    }
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
     .search-box {
       display: flex;
       justify-content: center;
       margin-top: 20px;
+      animation: fadeIn 1.5s ease forwards;
     }
     .search-box input {
       width: 350px;
@@ -111,23 +125,24 @@
     .cards {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 30px;
       justify-content: center;
     }
 
-    /* ===== CARDS ===== */
+    /* ===== FLIP CARDS ===== */
     .flip-card {
       background-color: transparent;
       width: 280px;
-      height: 300px;
+      height: 320px;
       perspective: 1000px;
+      transition: transform 0.3s;
     }
     .flip-card-inner {
       position: relative;
       width: 100%;
       height: 100%;
       text-align: center;
-      transition: transform 0.6s;
+      transition: transform 0.8s;
       transform-style: preserve-3d;
       border-radius: 20px;
     }
@@ -148,6 +163,8 @@
     .flip-card-front { background: #4caf50; color: white; font-weight: bold; }
     .flip-card-back { background: #ffffff; color: #333; transform: rotateY(180deg); font-weight: normal; }
 
+    .flip-card img { border-radius: 50%; width:120px; height:120px; margin-bottom:15px; }
+
     /* ===== FOOTER ===== */
     footer {
       background: #1f1f1f;
@@ -155,21 +172,6 @@
       padding: 30px;
     }
     footer a { margin: 0 10px; color: white; font-size: 1.2em; }
-
-    /* ===== FIREWORKS ===== */
-    .firework {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      pointer-events: none;
-      background: radial-gradient(circle, #ff0 0%, #f00 70%);
-      animation: explode 1s ease-out forwards;
-    }
-    @keyframes explode {
-      0% { transform: scale(0); opacity: 1; }
-      100% { transform: scale(20); opacity: 0; }
-    }
 
     @media(max-width: 768px) {
       .cards { flex-direction: column; align-items: center; }
@@ -197,8 +199,6 @@
   <section id="hero" class="hero">
     <h1>Artificial Intelligence Association</h1>
     <p>Ask AI, Innovate, Collaborate, and Grow!</p>
-
-    <!-- Search/Ask Box -->
     <div class="search-box">
       <input type="text" id="question" placeholder="Type your question here...">
       <button onclick="sendQuestion()">Send</button>
@@ -240,66 +240,54 @@
 
   <!-- ===== MEMBERS ===== -->
   <section id="members">
-    <h2 class="section-title">Meet Our Members</h2>
+    <h2 class="section-title">Our Leadership Team</h2>
     <div class="cards">
+
+      <!-- PRESIDENT -->
       <div class="flip-card">
         <div class="flip-card-inner">
-          <div class="flip-card-front">Meisam Shayeghmoradi<br>President</div>
-          <div class="flip-card-back">Leads AI initiatives and projects across campus.</div>
+          <div class="flip-card-front">
+            <img src="photos/william.jpg" alt="William Valentine">
+            <h3>William Valentine</h3>
+            <p>President</p>
+          </div>
+          <div class="flip-card-back">
+            <p>Leads AI initiatives and strategic planning for the association, ensuring all projects meet high standards of innovation.</p>
+          </div>
         </div>
       </div>
+
+      <!-- VICE PRESIDENT -->
       <div class="flip-card">
         <div class="flip-card-inner">
-          <div class="flip-card-front">William Valentine<br>Technical Lead</div>
-          <div class="flip-card-back">Oversees workshops and technical support.</div>
+          <div class="flip-card-front">
+            <img src="photos/meisam.jpg" alt="Meisam Shayeghmoradi">
+            <h3>Meisam Shayeghmoradi</h3>
+            <p>Vice President</p>
+          </div>
+          <div class="flip-card-back">
+            <p>Supports the President and oversees day-to-day operations, helping members collaborate on AI projects efficiently.</p>
+          </div>
         </div>
       </div>
+
+      <!-- ADVISOR -->
       <div class="flip-card">
         <div class="flip-card-inner">
-          <div class="flip-card-front">Thomas Stokke<br>AI Support Lead</div>
-          <div class="flip-card-back">Guides students in AI tools and project development.</div>
+          <div class="flip-card-front">
+            <img src="photos/stoke.jpg" alt="Thomas Stokke">
+            <h3>Thomas Stokke</h3>
+            <p>Advisor</p>
+          </div>
+          <div class="flip-card-back">
+            <p>Provides expert guidance on AI strategies, mentors members, and ensures projects follow best practices and academic standards.</p>
+          </div>
         </div>
       </div>
+
     </div>
   </section>
 
   <!-- ===== CONTACT ===== -->
   <section id="contact">
-    <h2 class="section-title">Contact Us</h2>
-    <p style="text-align:center;">Email: <a href="mailto:abc@gmail.com">abc@gmail.com</a></p>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <p>&copy; 2025 Artificial Intelligence Association</p>
-    <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
-    <a href="#"><i class="fab fa-github"></i> GitHub</a>
-    <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
-  </footer>
-
-  <!-- ===== SCRIPT ===== -->
-  <script>
-    // Firework effect
-    document.addEventListener('mousemove', function(e){
-      const firework = document.createElement('div');
-      firework.className = 'firework';
-      firework.style.left = e.pageX + 'px';
-      firework.style.top = e.pageY + 'px';
-      document.body.appendChild(firework);
-      setTimeout(()=>firework.remove(), 1000);
-    });
-
-    // Send question via email
-    function sendQuestion(){
-      const question = document.getElementById('question').value.trim();
-      if(question){
-        const mailtoLink = `mailto:abc@gmail.com?subject=AI%20Question&body=${encodeURIComponent(question)}`;
-        window.location.href = mailtoLink;
-      } else {
-        alert('Please type your question first!');
-      }
-    }
-  </script>
-
-</body>
-</html>
+    <
