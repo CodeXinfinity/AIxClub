@@ -1,330 +1,522 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Artificial Intelligence Association</title>
-<link rel="icon" href="photos/favicon.png" type="image/png">
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <!-- ===== META & BASICS ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artificial Intelligence Association</title>
+  <link rel="icon" href="photos/Meisam.png" type="image/png" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-<style>
-  /* ===== GENERAL ===== */
-  body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(160deg, #0ff, #4dd, #0aa);
-    color: #fff;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    transition: background 1s ease;
-  }
-  a { text-decoration: none; color: inherit; }
+  <!-- ===== STYLES ===== -->
+  <style>
+    /* ===== VARIABLES ===== */
+    :root {
+      --primary: #00ffff;
+      --accent1: #ff3;
+      --accent2: #f06;
+      --dark-bg: #001f1f;
+      --light-bg: #e0ffff;
+      --text-light: #fff;
+      --text-dark: #002;
+      --glass: rgba(255, 255, 255, 0.12);
+    }
 
-  /* ===== HEADER ===== */
-  header {
-    background: rgba(0,255,255,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-  }
-  .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-  }
-  .logo {
-    font-size: 1.8em;
-    font-weight: bold;
-    color: #00f;
-    display: flex;
-    align-items: center;
-  }
-  .logo img { width: 40px; height: 40px; margin-right: 10px; }
-  .nav a {
-    margin-left: 20px;
-    font-weight: 500;
-    transition: 0.3s;
-    color: #fff;
-    position: relative;
-  }
-  .nav a::after {
-    content: '';
-    position: absolute;
-    left: 0; bottom: -5px;
-    width: 0; height: 2px;
-    background: #00ffff;
-    transition: 0.3s;
-  }
-  .nav a:hover::after { width: 100%; }
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  /* ===== HERO ===== */
-  .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 120px 20px;
-    background: linear-gradient(135deg, #00ffff, #33ccff);
-    border-radius: 30px;
-    margin: 20px;
-    position: relative;
-    overflow: hidden;
-    transition: all 1s ease;
-  }
-  .hero h1 { font-size: 3em; margin-bottom: 10px; text-shadow: 2px 2px 10px #000; }
-  .hero p { font-size: 1.3em; margin-bottom: 30px; text-shadow: 1px 1px 8px #000; }
-  .search-box {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  .search-box input {
-    width: 350px;
-    padding: 15px 20px;
-    border-radius: 50px 0 0 50px;
-    border: none;
-    font-size: 16px;
-    outline: none;
-  }
-  .search-box button {
-    padding: 15px 25px;
-    border: none;
-    border-radius: 0 50px 50px 0;
-    background: linear-gradient(45deg,#ff3,#f06);
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  .search-box button:hover { background: linear-gradient(45deg,#f06,#ff3); }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  /* ===== SECTIONS ===== */
-  section {
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 1s ease;
-  }
-  section.visible { opacity: 1; transform: translateY(0); }
-  .section-title {
-    font-size: 2.5em;
-    margin-bottom: 40px;
-    text-align: center;
-    background: linear-gradient(90deg, #ff3, #f06, #0ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-  }
+    body {
+      font-family: "Poppins", "Segoe UI", sans-serif;
+      background: linear-gradient(145deg, #002244, #004466, #007777);
+      color: var(--text-light);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
 
-  /* ===== FLIP CARDS ===== */
-  .flip-card {
-    background: rgba(255,255,255,0.1);
-    width: 280px;
-    height: 320px;
-    perspective: 1000px;
-    border-radius: 25px;
-    backdrop-filter: blur(10px);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .flip-card:hover { transform: translateY(-15px) rotateZ(2deg); box-shadow: 0 15px 35px rgba(255,255,255,0.3); }
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-    border-radius: 25px;
-  }
-  .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
-  .flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 25px;
-    backface-visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  }
-  .flip-card-front { background: linear-gradient(145deg, #ff6, #f06); color: white; font-weight: bold; }
-  .flip-card-back { background: linear-gradient(145deg, #0ff,#33ccff); color: #333; transform: rotateY(180deg); font-weight: normal; }
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s;
+    }
 
-  .flip-card img { border-radius: 50%; width:120px; height:120px; margin-bottom:15px; border:3px solid #ff3; }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
 
-  /* ===== CONTACT BUTTONS ===== */
-  .contact-buttons a {
-    background: linear-gradient(45deg,#ff3,#f06);
-    color:#fff;
-    padding:15px 25px;
-    border-radius:25px;
-    font-weight:bold;
-    transition:0.3s;
-  }
-  .contact-buttons a:hover { background: linear-gradient(45deg,#f06,#ff3); }
+    /* ===== HEADER ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
+      background: rgba(0, 0, 0, 0.35);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
 
-  /* ===== FOOTER ===== */
-  footer {
-    background: rgba(0,255,255,0.1);
-    text-align: center;
-    padding: 30px;
-    color:#004d4d;
-  }
-  footer a { margin: 0 10px; color: #004d4d; font-size: 1.2em; transition:0.3s; }
-  footer a:hover { color:#ff3; }
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-  @media(max-width: 768px) {
-    .cards { flex-direction: column; align-items: center; }
-    .search-box input { width: 200px; }
-  }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.6em;
+      font-weight: bold;
+      color: var(--primary);
+      text-shadow: 0 0 10px var(--primary);
+    }
 
-  /* ===== FIREWORKS ===== */
-  .firework {
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-    animation: explode 0.6s ease-out forwards;
-    mix-blend-mode: screen;
-  }
-  @keyframes explode {
-    0% { width: 0; height: 0; opacity: 1; }
-    100% { width: 50px; height: 50px; opacity: 0; }
-  }
-</style>
+    .logo img {
+      width: 42px;
+      height: 42px;
+    }
+
+    nav.nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      font-weight: 500;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0%;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ===== MOBILE NAV ===== */
+    .menu-toggle {
+      display: none;
+      font-size: 1.8em;
+      cursor: pointer;
+      color: var(--text-light);
+    }
+
+    @media (max-width: 768px) {
+      nav.nav {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.85);
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0;
+        display: none;
+      }
+
+      nav.nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 150px 20px 100px;
+      background: radial-gradient(circle at top, #00ffff55, transparent 60%),
+        linear-gradient(135deg, #00bfff, #0077ff);
+      border-radius: 0 0 40px 40px;
+      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+    }
+
+    .hero h1 {
+      font-size: 3.2em;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-shadow: 0 0 10px #000;
+    }
+
+    .hero p {
+      font-size: 1.3em;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+
+    .search-box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      border-radius: 50px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+
+    .search-box input {
+      padding: 15px 20px;
+      font-size: 1em;
+      border: none;
+      outline: none;
+      min-width: 260px;
+    }
+
+    .search-box button {
+      background: linear-gradient(45deg, var(--accent1), var(--accent2));
+      color: #fff;
+      border: none;
+      padding: 15px 25px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.4s;
+    }
+
+    .search-box button:hover {
+      background: linear-gradient(45deg, var(--accent2), var(--accent1));
+    }
+
+    /* ===== SECTION BASE ===== */
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-title {
+      font-size: 2.5em;
+      text-align: center;
+      margin-bottom: 40px;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2), var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ===== ABOUT ===== */
+    #about p {
+      max-width: 800px;
+      text-align: center;
+      margin: auto;
+      line-height: 1.8;
+      font-size: 1.1em;
+    }
+
+    /* ===== PROJECTS ===== */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .flip-card {
+      background: var(--glass);
+      border-radius: 20px;
+      width: 280px;
+      height: 320px;
+      perspective: 1000px;
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .flip-card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.25);
+    }
+
+    .flip-card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.8s ease;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .flip-card-front {
+      background: linear-gradient(145deg, var(--accent1), var(--accent2));
+      color: #000;
+      font-weight: bold;
+    }
+
+    .flip-card-back {
+      background: linear-gradient(145deg, var(--primary), #33ccff);
+      color: #111;
+      transform: rotateY(180deg);
+      font-weight: 500;
+    }
+
+    /* ===== TEAM ===== */
+    .flip-card img {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      margin-bottom: 15px;
+      border: 3px solid var(--accent1);
+    }
+
+    /* ===== CONTACT ===== */
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .contact-buttons a {
+      background: linear-gradient(45deg, var(--accent1), var(--accent2));
+      color: #fff;
+      padding: 15px 25px;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .contact-buttons a:hover {
+      background: linear-gradient(45deg, var(--accent2), var(--accent1));
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: rgba(0, 0, 0, 0.5);
+      color: var(--text-light);
+    }
+
+    footer a {
+      color: var(--primary);
+      margin: 0 10px;
+      font-size: 1.3em;
+    }
+
+    footer a:hover {
+      color: var(--accent1);
+    }
+
+    /* ===== FIREWORKS ===== */
+    .firework {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: explode 0.6s ease-out forwards;
+      mix-blend-mode: screen;
+    }
+
+    @keyframes explode {
+      0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+      }
+      100% {
+        width: 50px;
+        height: 50px;
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
-
-<header>
-  <div class="header-container">
-    <div class="logo"><img src="photos/favicon.png" alt="logo"> AI Association</div>
-    <nav class="nav">
-      <a href="#hero">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#members">Members</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<section id="hero" class="hero">
-  <h1>Artificial Intelligence Association</h1>
-  <p>Ask AI, Innovate, Collaborate, and Grow!</p>
-  <div class="search-box">
-    <input type="text" id="question" placeholder="Type your question here...">
-    <button onclick="sendQuestion()">Send</button>
-  </div>
-</section>
-
-<section id="about">
-  <h2 class="section-title">About Us</h2>
-  <p style="text-align:center; max-width:800px; margin:0 auto;">
-    The Artificial Intelligence Association is a student-led organization focused on AI innovation, education, and community projects. Join our workshops, hackathons, and mentorship programs to elevate your skills.
-  </p>
-</section>
-
-<section id="projects">
-  <h2 class="section-title">Our Projects</h2>
-  <div class="cards">
-    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">AI Chatbot</div><div class="flip-card-back">Building NLP chatbots to interact with users intelligently.</div></div></div>
-    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">ML Models</div><div class="flip-card-back">Creating machine learning models for predictive analytics.</div></div></div>
-    <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">AI Robotics</div><div class="flip-card-back">Designing autonomous robots powered by AI technologies.</div></div></div>
-  </div>
-</section>
-
-<section id="members">
-  <h2 class="section-title">Our Leadership Team</h2>
-  <div class="cards">
-    <div class="flip-card"><div class="flip-card-inner">
-      <div class="flip-card-front">
-        <img src="photos/William.png" alt="William Valentine"><h3>William Valentine</h3><p>President</p>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="photos/favicon.png" alt="AI Association Logo" />
+        <span>AI Association</span>
       </div>
-      <div class="flip-card-back">
-        <p>Leads AI initiatives and strategic planning for the association.</p>
-      </div>
-    </div></div>
-    <div class="flip-card"><div class="flip-card-inner">
-      <div class="flip-card-front">
-        <img src="photos/Meisam.png" alt="Meisam Shayeghmoradi"><h3>Meisam Shayeghmoradi</h3><p>Vice President</p>
-      </div>
-      <div class="flip-card-back">
-        <p>Supports the President and oversees day-to-day operations.</p>
-      </div>
-    </div></div>
-    <div class="flip-card"><div class="flip-card-inner">
-      <div class="flip-card-front">
-        <img src="photos/Stokke.png" alt="Thomas Stokke"><h3>Thomas Stokke</h3><p>Advisor</p>
-      </div>
-      <div class="flip-card-back">
-        <p>Provides expert guidance on AI strategies and mentorship.</p>
-      </div>
-    </div></div>
-  </div>
-</section>
+      <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+      <nav class="nav" id="navbar" aria-label="Main navigation">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#members">Members</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<section id="contact">
-  <h2 class="section-title">Contact Us</h2>
-  <p style="text-align:center; max-width:800px; margin:0 auto;">
-    Reach out to us for collaboration, workshops, or general inquiries. We'd love to hear from you!
-  </p>
-  <div class="contact-buttons" style="display:flex; justify-content:center; gap:20px; margin-top:30px; flex-wrap:wrap;">
-    <a href="mailto:aiclub@und.edu">Email Us</a>
-    <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
-    <a href="https://twitter.com" target="_blank">Twitter</a>
-  </div>
-</section>
+  <!-- ===== HERO ===== -->
+  <section id="hero" class="hero">
+    <h1>Artificial Intelligence Association</h1>
+    <p>Innovate. Collaborate. Shape the Future with AI.</p>
+    <div class="search-box">
+      <input type="text" id="question" placeholder="Ask your AI-related question..." />
+      <button type="button" onclick="sendQuestion()">Send</button>
+    </div>
+  </section>
 
-<footer>
-  <p>&copy; 2025 Artificial Intelligence Association. All rights reserved.</p>
-  <div>
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-  </div>
-</footer>
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <h2 class="section-title">About Us</h2>
+    <p>
+      The Artificial Intelligence Association is a student-driven organization committed to advancing AI innovation, research, and education. 
+      Our mission is to empower the next generation of creators through workshops, hackathons, mentorship, and real-world projects that bring AI to life.
+    </p>
+  </section>
 
-<script>
-  // ===== SEND QUESTION =====
-  function sendQuestion() {
-    const question = document.getElementById('question').value.trim();
-    if(question) window.location.href = `mailto:aiclub@und.edu?subject=Question&body=${encodeURIComponent(question)}`;
-    else alert('Please type a question before sending.');
-  }
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects">
+    <h2 class="section-title">Our Projects</h2>
+    <div class="cards">
+      <div class="flip-card"><div class="flip-card-inner">
+        <div class="flip-card-front">AI Chatbot</div>
+        <div class="flip-card-back">Creating intelligent NLP-driven chatbots that engage and assist users naturally.</div>
+      </div></div>
 
-  // ===== FIREWORKS =====
-  document.addEventListener('mousemove', function(e){
-    const firework = document.createElement('div');
-    firework.className = 'firework';
-    firework.style.left = e.pageX + 'px';
-    firework.style.top = e.pageY + 'px';
-    firework.style.background = `radial-gradient(circle, hsl(${Math.random()*360}, 100%, 60%) 0%, transparent 70%)`;
-    document.body.appendChild(firework);
-    setTimeout(()=>firework.remove(),600);
-  });
+      <div class="flip-card"><div class="flip-card-inner">
+        <div class="flip-card-front">ML Models</div>
+        <div class="flip-card-back">Building data-driven models for predictive analytics and decision-making support.</div>
+      </div></div>
 
-  // ===== SECTION APPEARANCE =====
-  const sections = document.querySelectorAll('section');
-  const observer = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting) entry.target.classList.add('visible');
+      <div class="flip-card"><div class="flip-card-inner">
+        <div class="flip-card-front">AI Robotics</div>
+        <div class="flip-card-back">Designing autonomous robotics systems powered by advanced AI technologies.</div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- ===== MEMBERS ===== -->
+  <section id="members">
+    <h2 class="section-title">Leadership Team</h2>
+    <div class="cards">
+      <div class="flip-card"><div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="photos/William.png" alt="William Valentine - President" />
+          <h3>William Valentine</h3><p>President</p>
+        </div>
+        <div class="flip-card-back">Leads AI initiatives and oversees strategic growth of the organization.</div>
+      </div></div>
+
+      <div class="flip-card"><div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="photos/Meisam.png" alt="Meisam Shayeghmoradi - Vice President" />
+          <h3>Meisam Shayeghmoradi</h3><p>Vice President</p>
+        </div>
+        <div class="flip-card-back">Coordinates projects, partnerships, and educational programs for members.</div>
+      </div></div>
+
+      <div class="flip-card"><div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="photos/Stokke.png" alt="Thomas Stokke - Advisor" />
+          <h3>Thomas Stokke</h3><p>Advisor</p>
+        </div>
+        <div class="flip-card-back">Provides mentorship, strategic insight, and industry connections.</div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
+    <h2 class="section-title">Get in Touch</h2>
+    <p style="text-align:center; max-width:800px; margin:auto;">
+      We welcome collaboration, questions, and partnerships. Reach out to learn how you can join or support our initiatives!
+    </p>
+    <div class="contact-buttons">
+      <a href="mailto:aiclub@und.edu"><i class="fas fa-envelope"></i> Email Us</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i> Twitter</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>&copy; 2025 Artificial Intelligence Association. All rights reserved.</p>
+    <div>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // ===== MOBILE MENU =====
+    const menuToggle = document.getElementById("menu-toggle");
+    const nav = document.getElementById("navbar");
+    menuToggle.addEventListener("click", () => {
+      nav.classList.toggle("active");
     });
-  }, {threshold:0.2});
-  sections.forEach(sec=>observer.observe(sec));
-</script>
 
+    // ===== SEND QUESTION =====
+    function sendQuestion() {
+      const q = document.getElementById("question").value.trim();
+      if (q)
+        window.location.href = `mailto:aiclub@und.edu?subject=AI Question&body=${encodeURIComponent(q)}`;
+      else alert("Please type a question before sending.");
+    }
+
+    // ===== FIREWORK EFFECT =====
+    document.addEventListener("mousemove", (e) => {
+      const f = document.createElement("div");
+      f.className = "firework";
+      f.style.left = `${e.pageX}px`;
+      f.style.top = `${e.pageY}px`;
+      f.style.background = `radial-gradient(circle, hsl(${Math.random() * 360}, 100%, 60%) 0%, transparent 70%)`;
+      document.body.appendChild(f);
+      setTimeout(() => f.remove(), 600);
+    });
+
+    // ===== SCROLL REVEAL =====
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.2 });
+    sections.forEach((section) => observer.observe(section));
+  </script>
 </body>
 </html>
