@@ -39,6 +39,7 @@
       color: var(--text-light);
       overflow-x: hidden;
       min-height: 100vh;
+      position: relative;
     }
 
     a {
@@ -144,7 +145,6 @@
 
     /* ===== HERO ===== */
     .hero {
-      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -152,8 +152,8 @@
       padding: 150px 20px 100px;
       border-radius: 0 0 40px 40px;
       box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+      position: relative;
       overflow: hidden;
-      z-index: 0;
     }
 
     #hero-video {
@@ -365,16 +365,8 @@
     }
 
     @keyframes explode {
-      0% {
-        width: 0;
-        height: 0;
-        opacity: 1;
-      }
-      100% {
-        width: 50px;
-        height: 50px;
-        opacity: 0;
-      }
+      0% { width: 0; height: 0; opacity: 1; }
+      100% { width: 50px; height: 50px; opacity: 0; }
     }
   </style>
 </head>
@@ -382,7 +374,7 @@
 <body>
   <!-- ===== AUDIO ===== -->
   <audio id="background-audio" autoplay loop>
-    <source src="audio/background.mp3" type="audio/mpeg">
+    <source src="resources/background.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
@@ -401,7 +393,9 @@
         <a href="#members">Members</a>
         <a href="#contact">Contact</a>
         <a href="form.html" 
-           style="display:inline-block; background-color: #00ffff; padding:8px 16px; border-radius:25px; font-weight:bold; color:#000;">Join</a>
+          style="display:inline-block; background-color:#1e3799; color:#fff; padding:10px 20px; border-radius:5px; text-decoration:none;">
+          Take the AIA Faculty Survey
+        </a>
       </nav>
     </div>
   </header>
@@ -409,7 +403,7 @@
   <!-- ===== HERO ===== -->
   <section id="hero" class="hero">
     <video autoplay muted loop id="hero-video">
-      <source src="videos/background.mp4" type="video/mp4">
+      <source src="resources/background.mp4" type="video/mp4">
       Your browser does not support HTML5 video.
     </video>
     <h1>Artificial Intelligence Association</h1>
@@ -424,41 +418,32 @@
   <section id="about">
     <h2 class="section-title">About Us</h2>
     <p>
-      The Artificial Intelligence Association is a hub for AI enthusiasts,
-      innovators, and researchers. We aim to promote AI awareness, foster
-      collaboration, and provide hands-on opportunities in AI projects and
-      competitions.
+      The Artificial Intelligence Association is a community of AI enthusiasts, researchers, and developers 
+      committed to fostering innovation, collaboration, and knowledge sharing in AI technologies.
     </p>
   </section>
 
   <!-- ===== PROJECTS ===== -->
   <section id="projects">
-    <h2 class="section-title">Our Projects</h2>
+    <h2 class="section-title">Projects</h2>
     <div class="cards">
       <div class="flip-card">
         <div class="flip-card-inner">
-          <div class="flip-card-front">
-            AI Chatbot
-          </div>
-          <div class="flip-card-back">
-            A conversational AI that can assist users and answer queries.
-          </div>
+          <div class="flip-card-front">Project A</div>
+          <div class="flip-card-back">Description of Project A.</div>
         </div>
       </div>
       <div class="flip-card">
         <div class="flip-card-inner">
-          <div class="flip-card-front">
-            Image Recognition
-          </div>
-          <div class="flip-card-back">
-            A project that identifies objects and patterns in images using AI.
-          </div>
+          <div class="flip-card-front">Project B</div>
+          <div class="flip-card-back">Description of Project B.</div>
         </div>
       </div>
+      <!-- Add more cards as needed -->
     </div>
   </section>
 
-  <!-- ===== MEMBERS ===== -->
+  <!-- ===== TEAM ===== -->
   <section id="members">
     <h2 class="section-title">Our Team</h2>
     <div class="cards">
@@ -466,24 +451,12 @@
         <div class="flip-card-inner">
           <div class="flip-card-front">
             <img src="photos/member1.jpg" alt="Member 1" />
-            Alice
+            Member 1
           </div>
-          <div class="flip-card-back">
-            AI Researcher & Developer
-          </div>
+          <div class="flip-card-back">Role: AI Researcher</div>
         </div>
       </div>
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="photos/member2.jpg" alt="Member 2" />
-            Bob
-          </div>
-          <div class="flip-card-back">
-            Data Scientist & ML Specialist
-          </div>
-        </div>
-      </div>
+      <!-- Add more members -->
     </div>
   </section>
 
@@ -491,25 +464,25 @@
   <section id="contact">
     <h2 class="section-title">Contact Us</h2>
     <div class="contact-buttons">
-      <a href="mailto:info@aiassociation.com"><i class="fas fa-envelope"></i> Email</a>
-      <a href="https://github.com/aiassociation" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-      <a href="https://twitter.com/aiassociation" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+      <a href="mailto:contact@aiassociation.org">Email</a>
+      <a href="https://www.facebook.com" target="_blank">Facebook</a>
+      <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
     </div>
   </section>
 
   <!-- ===== FOOTER ===== -->
   <footer>
-    <p>&copy; 2025 AI Association. All rights reserved.</p>
+    &copy; 2025 Artificial Intelligence Association. All rights reserved.
     <div>
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
     </div>
   </footer>
 
-  <!-- ===== SCRIPTS ===== -->
+  <!-- ===== JS ===== -->
   <script>
-    // Mobile menu toggle
+    // ===== MOBILE MENU =====
     const menuToggle = document.getElementById("menu-toggle");
     const navbar = document.getElementById("navbar");
 
@@ -517,45 +490,24 @@
       navbar.classList.toggle("active");
     });
 
-    // Scroll reveal sections
-    const sections = document.querySelectorAll("section");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    sections.forEach(section => observer.observe(section));
-
-    // Fireworks on click
-    document.addEventListener("click", (e) => {
-      const firework = document.createElement("div");
-      firework.className = "firework";
-      firework.style.left = `${e.clientX}px`;
-      firework.style.top = `${e.clientY}px`;
-      document.body.appendChild(firework);
-      setTimeout(() => firework.remove(), 600);
-    });
-
-    // Dummy search function
-    function sendQuestion() {
-      const question = document.getElementById("question").value;
-      alert(`Your question: "${question}" has been sent to AI.`);
-      document.getElementById("question").value = "";
-    }
-
-    // Ensure audio plays (volume optional)
+    // ===== AUDIO AUTOPLAY SAFETY =====
     const audio = document.getElementById("background-audio");
     audio.volume = 0.3;
     audio.play().catch(() => {
-      console.log("Autoplay blocked. Click anywhere to play audio.");
       document.body.addEventListener("click", () => audio.play());
     });
+
+    // ===== FADE-IN SECTIONS =====
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => observer.observe(section));
   </script>
 </body>
 </html>
