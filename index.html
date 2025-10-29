@@ -39,7 +39,6 @@
       color: var(--text-light);
       overflow-x: hidden;
       min-height: 100vh;
-      position: relative;
     }
 
     a {
@@ -233,7 +232,7 @@
       font-size: 1.1em;
     }
 
-    /* ===== PROJECTS & TEAM CARDS ===== */
+    /* ===== PROJECTS ===== */
     .cards {
       display: flex;
       flex-wrap: wrap;
@@ -296,7 +295,7 @@
       font-weight: 500;
     }
 
-    /* TEAM IMAGE */
+    /* ===== TEAM ===== */
     .flip-card img {
       border-radius: 50%;
       width: 120px;
@@ -326,34 +325,6 @@
     .contact-buttons a:hover {
       background: linear-gradient(45deg, var(--accent2), var(--accent1));
     }
-    /* ===== News ===== */
-    #ai-news {
-      text-align: center;
-    }
-    
-    .news-container {
-      margin: 0 auto;
-      max-width: 800px;
-      height: 60px;
-      overflow: hidden;
-      position: relative;
-    }
-    
-    .news-item {
-      font-size: 1.2em;
-      line-height: 60px;
-      position: absolute;
-      width: 100%;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: opacity 0.5s;
-    }
-    .news-item.active {
-      opacity: 1;
-    }
-
-    
 
     /* ===== FOOTER ===== */
     footer {
@@ -372,6 +343,32 @@
     footer a:hover {
       color: var(--accent1);
     }
+    /*=======News=======*/
+     #ai-news {
+    text-align: center;
+  }
+  
+  .news-container {
+    margin: 0 auto;
+    max-width: 800px;
+    height: 60px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .news-item {
+    font-size: 1.2em;
+    line-height: 60px;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  .news-item.active {
+    opacity: 1;
+  }
 
     /* ===== FIREWORKS ===== */
     .firework {
@@ -411,7 +408,6 @@
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#members">Members</a>
-        <a href="#ai-news">News</a>
         <a href="#contact">Contact</a>
         <a href="form.html" 
    style="display:inline-block;
@@ -441,71 +437,106 @@
     <h2 class="section-title">About Us</h2>
     <p>
       The Artificial Intelligence Association is a student-driven organization committed to advancing AI innovation, research, and education. 
-      Our mission is to empower the next generation of creators through workshops, hackathons, mentorship, and real-world AI projects.
+      Our mission is to empower the next generation of creators through workshops, hackathons, mentorship, and real-world projects that bring AI to life.
     </p>
   </section>
 
   <!-- ===== PROJECTS ===== -->
   <section id="projects">
-    <h2 class="section-title">Projects</h2>
+    <h2 class="section-title">Our Projects</h2>
     <div class="cards">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">AI Chatbot</div>
-          <div class="flip-card-back">An intelligent assistant capable of answering queries and automating tasks.</div>
-        </div>
-      </div>
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">Image Recognition</div>
-          <div class="flip-card-back">Computer vision project identifying objects, faces, and emotions in images.</div>
-        </div>
-      </div>
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">Predictive Analytics</div>
-          <div class="flip-card-back">Analyzing data to forecast trends and decision-making insights.</div>
-        </div>
-      </div>
+      <div class="flip-card"><div class="flip-card-inner">
+        <div class="flip-card-front">AI Chatbot</div>
+        <div class="flip-card-back">Creating intelligent NLP-driven chatbots that engage and assist users naturally.</div>
+      </div></div>
+
+      <div class="flip-card"><div class="flip-card-inner">
+        <div class="flip-card-front">ML Models</div>
+        <div class="flip-card-back">Building data-driven models for predictive analytics and decision-making support.</div>
+      </div></div>
+
+      <div class="flip-card"><div class="flip-card-inner">
+        <div class="flip-card-front">AI Robotics</div>
+        <div class="flip-card-back">Designing autonomous robotics systems powered by advanced AI technologies.</div>
+      </div></div>
     </div>
   </section>
 
   <!-- ===== MEMBERS ===== -->
-  <section id="members">
-    <h2 class="section-title">Leadership Team</h2>
-    <div class="cards">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="photos/member1.jpg" alt="Member 1" />
-            John Doe
-          </div>
-          <div class="flip-card-back">President – Oversees all AI association initiatives and events.</div>
-        </div>
+<section id="members">
+  <h2 class="section-title">Leadership Team</h2>
+  <div class="cards">
+    <!-- President -->
+    <div class="flip-card"><div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="photos/William.png" alt="William Valentine - President" />
+        <h3>William Valentine</h3><p>President</p>
       </div>
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="photos/member2.jpg" alt="Member 2" />
-            Jane Smith
-          </div>
-          <div class="flip-card-back">Vice President – Coordinates projects and member engagement.</div>
-        </div>
+      <div class="flip-card-back">
+        Leads AI initiatives and oversees strategic growth of the organization.
       </div>
-    </div>
-  </section>
+    </div></div>
 
+    <!-- Vice President -->
+    <div class="flip-card"><div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="photos/Meisam.png" alt="Meisam Shayeghmoradi - Vice President" />
+        <h3>Meisam Shayeghmoradi</h3><p>Vice President</p>
+      </div>
+      <div class="flip-card-back">
+        Coordinates projects, partnerships, and educational programs for members.
+      </div>
+    </div></div>
+
+    <!-- Advisor -->
+    <div class="flip-card"><div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="photos/Stokke.png" alt="Thomas Stokke - Advisor" />
+        <h3>Thomas Stokke</h3><p>Advisor</p>
+      </div>
+      <div class="flip-card-back">
+        Provides mentorship, strategic insight, and industry connections.
+      </div>
+    </div></div>
+
+    <!-- Secretary -->
+    <div class="flip-card"><div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="photos/dylan.jpg" alt="Dylan - Treasurer" />
+        <h3>Dylan</h3><p>Treasurer</p>
+      </div>
+      <div class="flip-card-back">
+        Oversees budgeting, funding, and financial planning for the club.
+      </div>
+    </div></div>
+
+    <!-- Treasurer -->
+    <div class="flip-card"><div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="photos/mario.jpg" alt="Mario - Secretary" />
+        <h3>Mario</h3><p>Secretary</p>
+      </div>
+      <div class="flip-card-back">
+        Manages communications, meeting notes, and organizational documentation.
+
+      </div>
+    </div></div>
+  </div>
+</section>
   <!-- ===== CONTACT ===== -->
   <section id="contact">
-    <h2 class="section-title">Contact Us</h2>
+    <h2 class="section-title">Get in Touch</h2>
+    <p style="text-align:center; max-width:800px; margin:auto;">
+      We welcome collaboration, questions, and partnerships. Reach out to learn how you can join or support our initiatives!
+    </p>
     <div class="contact-buttons">
-      <a href="mailto:info@aia.org"><i class="fas fa-envelope"></i> Email</a>
-      <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      <a href="https://twitter.com"><i class="fab fa-twitter"></i> Twitter</a>
+      <a href="mailto:aiclub@und.edu"><i class="fas fa-envelope"></i> Email Us</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i> Twitter</a>
     </div>
   </section>
   <!-- ===== News ===== -->
-  <!-- ===== AI NEWS ===== -->
+
   <section id="ai-news">
     <h2 class="section-title">AI News</h2>
     <div class="news-container">
@@ -519,37 +550,31 @@
 
   <!-- ===== FOOTER ===== -->
   <footer>
-    &copy; 2025 AI Association. All rights reserved. 
+    <p>&copy; 2025 Artificial Intelligence Association. All rights reserved.</p>
     <div>
-      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
       <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
   </footer>
 
-  <!-- ===== JAVASCRIPT ===== -->
+  <!-- ===== SCRIPTS ===== -->
   <script>
-    // Mobile menu toggle
-    const toggle = document.getElementById('menu-toggle');
-    const navbar = document.getElementById('navbar');
-    toggle.addEventListener('click', () => navbar.classList.toggle('active'));
+    // ===== MOBILE MENU =====
+    const menuToggle = document.getElementById("menu-toggle");
+    const nav = document.getElementById("navbar");
+    menuToggle.addEventListener("click", () => {
+      nav.classList.toggle("active");
+    });
 
-    // Send question via mailto
+    // ===== SEND QUESTION =====
     function sendQuestion() {
-      const question = document.getElementById('question').value;
-      if(!question.trim()) return alert('Please type a question!');
-      const mailto = `mailto:info@aia.org?subject=AI Question&body=${encodeURIComponent(question)}`;
-      window.open(mailto, '_blank');
+      const q = document.getElementById("question").value.trim();
+      if (q)
+        window.location.href = `mailto:aiclub@und.edu?subject=AI Question&body=${encodeURIComponent(q)}`;
+      else alert("Please type a question before sending.");
     }
-
-    // Scroll reveal
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.2 });
-    sections.forEach(section => observer.observe(section));
-    //News
     // ===== AI NEWS SHUFFLE =====
     const newsItems = document.querySelectorAll(".news-item");
     let currentNews = 0;
@@ -566,18 +591,25 @@
     showNextNews();
     // Change every 4 seconds
     setInterval(showNextNews, 4000);
-    // Fireworks effect
-    document.addEventListener('click', e => {
-      for(let i=0; i<10; i++){
-        const firework = document.createElement('div');
-        firework.className = 'firework';
-        firework.style.left = e.clientX + 'px';
-        firework.style.top = e.clientY + 'px';
-        firework.style.background = `hsl(${Math.random()*360}, 100%, 50%)`;
-        document.body.appendChild(firework);
-        setTimeout(()=> firework.remove(), 600);
-      }
-    });
+        // ===== FIREWORK EFFECT =====
+        document.addEventListener("mousemove", (e) => {
+          const f = document.createElement("div");
+          f.className = "firework";
+          f.style.left = `${e.pageX}px`;
+          f.style.top = `${e.pageY}px`;
+          f.style.background = `radial-gradient(circle, hsl(${Math.random() * 360}, 100%, 60%) 0%, transparent 70%)`;
+          document.body.appendChild(f);
+          setTimeout(() => f.remove(), 600);
+        });
+
+    // ===== SCROLL REVEAL =====
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.2 });
+    sections.forEach((section) => observer.observe(section));
   </script>
 </body>
 </html>
