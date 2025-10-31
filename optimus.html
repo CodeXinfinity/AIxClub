@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OptimusXtream</title>
+  <link rel="icon" href="photos/Club.png" type="image/png" />
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle at center, #001122, #000814);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      font-family: "Poppins", sans-serif;
+      color: #00ffff;
+    }
+
+    .container {
+      position: relative;
+      text-align: center;
+    }
+
+    /* Infinity-style "oo" */
+    .oo {
+      font-size: 6em;
+      font-weight: bold;
+      display: inline-block;
+      color: #00ffff;
+      position: relative;
+      animation: infinityMove 3s ease-in-out infinite;
+    }
+
+    @keyframes infinityMove {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(15deg) scale(1.1); }
+      50% { transform: rotate(-15deg) scale(1.1); }
+      75% { transform: rotate(10deg) scale(1); }
+    }
+
+    /* Two Optimus moving apart */
+    .optimus-left, .optimus-right {
+      position: absolute;
+      top: 50%;
+      font-size: 3em;
+      font-weight: bold;
+      color: #ff3;
+      opacity: 0;
+      transform: translateY(-50%);
+      animation: moveOptimus 4s ease-in-out 2s forwards;
+    }
+
+    .optimus-left {
+      left: 50%;
+      animation-name: optimusLeft;
+    }
+
+    .optimus-right {
+      right: 50%;
+      animation-name: optimusRight;
+    }
+
+    @keyframes optimusLeft {
+      0% { opacity: 1; transform: translate(0, -50%); }
+      100% { opacity: 0; transform: translate(-250px, -50%) rotate(-15deg); }
+    }
+
+    @keyframes optimusRight {
+      0% { opacity: 1; transform: translate(0, -50%); }
+      100% { opacity: 0; transform: translate(250px, -50%) rotate(15deg); }
+    }
+
+    /* Xtream Reveal */
+    .xtream {
+      font-size: 3.5em;
+      font-weight: bold;
+      color: #ff0066;
+      letter-spacing: 3px;
+      opacity: 0;
+      animation: fadeInXtream 2s ease-in 4.5s forwards;
+      text-shadow: 0 0 20px #ff3, 0 0 40px #ff0066;
+    }
+
+    @keyframes fadeInXtream {
+      from { opacity: 0; transform: scale(0.7); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9em;
+      color: rgba(255,255,255,0.6);
+    }
+
+    footer a {
+      color: #00ffff;
+      text-decoration: none;
+      margin-left: 8px;
+    }
+
+    footer a:hover {
+      color: #ff3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="oo">oo</div>
+    <div class="optimus-left">OPTIMUS</div>
+    <div class="optimus-right">OPTIMUS</div>
+    <div class="xtream">Xtream</div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 OptimusXtream | <a href="index.html">Back to Home</a></p>
+  </footer>
+</body>
+</html>
