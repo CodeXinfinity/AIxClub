@@ -18,19 +18,78 @@
       color: #00ffff;
     }
 
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
     .container {
       position: relative;
       text-align: center;
+      z-index: 5;
     }
 
-    /* Infinity-style "oo" */
+    /* Initial Optimus split */
+    .optimus-left, .optimus-right {
+      position: absolute;
+      top: 50%;
+      font-size: 3em;
+      font-weight: bold;
+      color: #ff3;
+      opacity: 0;
+      transform: translateY(-50%);
+    }
+
+    .optimus-left {
+      left: 50%;
+      animation: leftEnter 2s ease-in-out 0.5s forwards,
+                 leftExit 2s ease-in-out 2.5s forwards;
+    }
+
+    .optimus-right {
+      right: 50%;
+      animation: rightEnter 2s ease-in-out 0.5s forwards,
+                 rightExit 2s ease-in-out 2.5s forwards;
+    }
+
+    @keyframes leftEnter {
+      from { opacity: 0; transform: translate(50%, -50%); }
+      to { opacity: 1; transform: translate(0, -50%); }
+    }
+
+    @keyframes rightEnter {
+      from { opacity: 0; transform: translate(-50%, -50%); }
+      to { opacity: 1; transform: translate(0, -50%); }
+    }
+
+    @keyframes leftExit {
+      from { opacity: 1; transform: translate(0, -50%); }
+      to { opacity: 0; transform: translate(-200px, -50%) rotate(-10deg); }
+    }
+
+    @keyframes rightExit {
+      from { opacity: 1; transform: translate(0, -50%); }
+      to { opacity: 0; transform: translate(200px, -50%) rotate(10deg); }
+    }
+
+    /* Infinity "oo" emerges after split */
     .oo {
       font-size: 6em;
       font-weight: bold;
       display: inline-block;
       color: #00ffff;
       position: relative;
-      animation: infinityMove 3s ease-in-out infinite;
+      opacity: 0;
+      animation: ooAppear 1.5s ease-in-out 4s forwards,
+                 infinityMove 3s ease-in-out 5.5s infinite;
+      text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+    }
+
+    @keyframes ooAppear {
+      from { opacity: 0; transform: scale(0) rotate(0deg); }
+      to { opacity: 1; transform: scale(1.1) rotate(0deg); }
     }
 
     @keyframes infinityMove {
@@ -40,46 +99,14 @@
       75% { transform: rotate(10deg) scale(1); }
     }
 
-    /* Two Optimus moving apart */
-    .optimus-left, .optimus-right {
-      position: absolute;
-      top: 50%;
-      font-size: 3em;
-      font-weight: bold;
-      color: #ff3;
-      opacity: 0;
-      transform: translateY(-50%);
-      animation: moveOptimus 4s ease-in-out 2s forwards;
-    }
-
-    .optimus-left {
-      left: 50%;
-      animation-name: optimusLeft;
-    }
-
-    .optimus-right {
-      right: 50%;
-      animation-name: optimusRight;
-    }
-
-    @keyframes optimusLeft {
-      0% { opacity: 1; transform: translate(0, -50%); }
-      100% { opacity: 0; transform: translate(-250px, -50%) rotate(-15deg); }
-    }
-
-    @keyframes optimusRight {
-      0% { opacity: 1; transform: translate(0, -50%); }
-      100% { opacity: 0; transform: translate(250px, -50%) rotate(15deg); }
-    }
-
-    /* Xtream Reveal */
+    /* Xtream reveal */
     .xtream {
       font-size: 3.5em;
       font-weight: bold;
       color: #ff0066;
       letter-spacing: 3px;
       opacity: 0;
-      animation: fadeInXtream 2s ease-in 4.5s forwards;
+      animation: fadeInXtream 2s ease-in 7s forwards;
       text-shadow: 0 0 20px #ff3, 0 0 40px #ff0066;
     }
 
@@ -88,11 +115,40 @@
       to { opacity: 1; transform: scale(1); }
     }
 
+    /* Talking text */
+    .xtream-description {
+      font-size: 1.1em;
+      color: #00ffff;
+      opacity: 0;
+      margin-top: 20px;
+      letter-spacing: 1px;
+      text-shadow: 0 0 8px #00ffff;
+      animation: fadeInDescription 1s ease-in 9s forwards;
+    }
+
+    @keyframes fadeInDescription {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .typing {
+      display: inline-block;
+      border-right: 2px solid #00ffff;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: blink 0.8s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
     footer {
       position: absolute;
       bottom: 20px;
       font-size: 0.9em;
       color: rgba(255,255,255,0.6);
+      z-index: 10;
     }
 
     footer a {
@@ -107,15 +163,90 @@
   </style>
 </head>
 <body>
+  <canvas id="bg"></canvas>
+
   <div class="container">
-    <div class="oo">oo</div>
     <div class="optimus-left">OPTIMUS</div>
     <div class="optimus-right">OPTIMUS</div>
+    <div class="oo">oo</div>
     <div class="xtream">Xtream</div>
+    <div class="xtream-description"><span id="typewriter" class="typing"></span></div>
   </div>
 
   <footer>
     <p>&copy; 2025 OptimusXtream | <a href="index.html">Back to Home</a></p>
   </footer>
+
+  <!-- Three.js -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+
+  <script>
+    // === 3D Background ===
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bg'), alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+
+    const light = new THREE.PointLight(0x00ffff, 2);
+    light.position.set(0, 5, 10);
+    scene.add(light);
+    scene.add(new THREE.AmbientLight(0x003366, 0.5));
+
+    const cubes = [];
+    const geo = new THREE.BoxGeometry(1, 1, 1);
+    for (let i = 0; i < 50; i++) {
+      const mat = new THREE.MeshStandardMaterial({
+        color: new THREE.Color(`hsl(${Math.random()*360}, 100%, 60%)`),
+        emissive: 0x001133
+      });
+      const cube = new THREE.Mesh(geo, mat);
+      cube.position.set((Math.random()-0.5)*40, Math.random()*30+10, (Math.random()-0.5)*30);
+      cube.rotation.x = Math.random()*Math.PI;
+      cube.rotation.y = Math.random()*Math.PI;
+      cube.scale.setScalar(Math.random()*0.8+0.2);
+      scene.add(cube);
+      cubes.push(cube);
+    }
+
+    camera.position.z = 20;
+
+    function animate() {
+      requestAnimationFrame(animate);
+      cubes.forEach(cube => {
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.01;
+        cube.position.y -= 0.05;
+        if (cube.position.y < -15) {
+          cube.position.y = Math.random() * 25 + 15;
+          cube.position.x = (Math.random() - 0.5) * 40;
+        }
+      });
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth/window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // === Typewriter Effect ===
+    const descriptionText = "I am Xtream — born from Optimus, the flow of endless innovation.";
+    const typewriter = document.getElementById("typewriter");
+    let index = 0;
+    setTimeout(() => {
+      const interval = setInterval(() => {
+        if (index < descriptionText.length) {
+          typewriter.textContent += descriptionText.charAt(index);
+          index++;
+        } else {
+          clearInterval(interval);
+          typewriter.classList.remove("typing");
+        }
+      }, 60);
+    }, 9000);
+  </script>
 </body>
 </html>
