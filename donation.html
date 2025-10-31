@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donate - AI Association</title>
+  <link rel="icon" href="photos/Club.png" type="image/png" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --primary: #00ffff;
+      --accent1: #ff3;
+      --accent2: #f06;
+      --dark-bg: #001f1f;
+      --text-light: #fff;
+      --text-dark: #002;
+    }
+
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      font-family: "Poppins", "Segoe UI", sans-serif;
+      background: linear-gradient(145deg, #002244, #004466, #007777);
+      color: var(--text-light);
+      min-height: 100vh;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(12px);
+      background: rgba(0,0,0,0.35);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: var(--primary);
+      text-shadow: 0 0 10px var(--primary);
+    }
+
+    .logo img { width: 40px; height: 40px; }
+
+    nav a {
+      color: var(--text-light);
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover { color: var(--accent1); }
+
+    .donation-section {
+      max-width: 600px;
+      margin: 80px auto;
+      background: rgba(255,255,255,0.1);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(8px);
+      text-align: center;
+      box-shadow: 0 0 25px rgba(0,255,255,0.2);
+    }
+
+    .donation-section h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: var(--primary);
+      text-shadow: 0 0 8px #000;
+    }
+
+    .donation-section p {
+      margin-bottom: 30px;
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    input, select {
+      padding: 15px 20px;
+      font-size: 1em;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+    }
+
+    button {
+      padding: 15px 25px;
+      font-size: 1.1em;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background: linear-gradient(45deg, var(--accent1), var(--accent2));
+      color: #fff;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: linear-gradient(45deg, var(--accent2), var(--accent1));
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: rgba(0,0,0,0.5);
+      color: var(--text-light);
+      margin-top: 80px;
+    }
+
+    footer a { color: var(--primary); margin: 0 10px; font-size: 1.3em; }
+    footer a:hover { color: var(--accent1); }
+
+    @media(max-width:768px) {
+      header { flex-direction: column; gap: 15px; }
+      .donation-section { margin: 50px 20px; padding: 30px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="photos/Club.png" alt="AI Association Logo" />
+      <span>AI Association</span>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#members">Members</a>
+      <a href="index.html#ai-news">News</a>
+      <a href="donation.html" style="color:var(--accent1); font-weight:bold;">Donate</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="donation-section">
+    <h1>Support the AI Association</h1>
+    <p>Your donation helps us organize workshops, develop AI projects, and support the next generation of AI innovators. Every contribution counts!</p>
+    
+    <form onsubmit="alert('Thank you for your donation! (This is a placeholder form.)'); return false;">
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email Address" required />
+      <select required>
+        <option value="">Select Donation Amount</option>
+        <option value="10">$10</option>
+        <option value="25">$25</option>
+        <option value="50">$50</option>
+        <option value="100">$100</option>
+        <option value="other">Other</option>
+      </select>
+      <button type="submit">Donate Now</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Artificial Intelligence Association. All rights reserved.</p>
+    <div>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </footer>
+</body>
+</html>
