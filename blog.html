@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Blog | Artificial Intelligence Association</title>
+  <link rel="icon" href="photos/Club.png" type="image/png" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      --primary: #00ffff;
+      --accent1: #ff3;
+      --accent2: #f06;
+      --dark-bg: #001f1f;
+      --text-light: #fff;
+      --glass: rgba(255, 255, 255, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", "Segoe UI", sans-serif;
+      background: linear-gradient(145deg, #002244, #004466, #007777);
+      color: var(--text-light);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
+      background: rgba(0, 0, 0, 0.35);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1.6em;
+      text-shadow: 0 0 10px var(--primary);
+    }
+
+    .logo img {
+      width: 40px;
+      height: 40px;
+    }
+
+    nav.nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      position: relative;
+      font-weight: 500;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0%;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      text-align: center;
+      padding: 120px 20px 60px;
+      background: radial-gradient(circle at top, #00ffff55, transparent 60%),
+                  linear-gradient(135deg, #00bfff, #0077ff);
+      border-radius: 0 0 40px 40px;
+      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      color: #e0f7ff;
+    }
+
+    /* ===== BLOG SECTION ===== */
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 2.5em;
+      text-align: center;
+      margin-bottom: 40px;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2), var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .blog-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .blog-post {
+      background: var(--glass);
+      border-radius: 20px;
+      overflow: hidden;
+      max-width: 350px;
+      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .blog-post:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4);
+    }
+
+    .blog-post img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .blog-content {
+      padding: 20px;
+      text-align: left;
+    }
+
+    .blog-content h3 {
+      font-size: 1.3em;
+      color: var(--accent1);
+      margin-bottom: 10px;
+    }
+
+    .blog-content p {
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .read-more {
+      display: inline-block;
+      background: linear-gradient(45deg, var(--accent1), var(--accent2));
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 20px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .read-more:hover {
+      background: linear-gradient(45deg, var(--accent2), var(--accent1));
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: rgba(0, 0, 0, 0.5);
+      color: var(--text-light);
+    }
+
+    footer a {
+      color: var(--primary);
+      margin: 0 10px;
+      font-size: 1.3em;
+    }
+
+    footer a:hover {
+      color: var(--accent1);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .blog-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="photos/Club.png" alt="AI Association Logo" />
+        <span>AI Association</span>
+      </div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#members">Members</a>
+        <a href="index.html#ai-news">News</a>
+        <a href="blog.html" style="color: var(--accent1);">Blog</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <h1>AI Insights & Articles</h1>
+    <p>Explore the latest research, trends, and innovations in artificial intelligence.</p>
+  </section>
+
+  <!-- ===== BLOG POSTS ===== -->
+  <section id="blog">
+    <h2 class="section-title">Our Latest Articles</h2>
+    <div class="blog-container">
+
+      <div class="blog-post">
+        <img src="photos/ai_future.jpg" alt="The Future of AI" />
+        <div class="blog-content">
+          <h3>The Future of Artificial Intelligence</h3>
+          <p>AI continues to evolve — from autonomous systems to generative creativity. Discover where it’s headed and how students can shape its ethical path.</p>
+          <a href="#" class="read-more">Read More</a>
+        </div>
+      </div>
+
+      <div class="blog-post">
+        <img src="photos/ai_ethics.jpg" alt="AI Ethics" />
+        <div class="blog-content">
+          <h3>Building Ethical AI Systems</h3>
+          <p>Developers must prioritize fairness, transparency, and responsibility. Learn how ethical frameworks shape the AI we build today.</p>
+          <a href="#" class="read-more">Read More</a>
+        </div>
+      </div>
+
+      <div class="blog-post">
+        <img src="photos/ai_in_healthcare.jpg" alt="AI in Healthcare" />
+        <div class="blog-content">
+          <h3>AI Revolutionizing Healthcare</h3>
+          <p>From diagnostics to treatment, AI is transforming medicine. Explore how machine learning saves lives through data-driven insights.</p>
+          <a href="#" class="read-more">Read More</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>&copy; 2025 Artificial Intelligence Association. All rights reserved.</p>
+    <div>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </footer>
+</body>
+</html>
