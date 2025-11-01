@@ -170,41 +170,16 @@ canvas {
   to {opacity: 1; transform: translateY(0);}
 }
 
-.word {
-  opacity: 0;
+/* Typewriter effect */
+.typing {
   display: inline-block;
-  transform: translateY(10px);
-  animation: fadeWord 0.6s forwards;
+  border-right: 2px solid #00ffff;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: blink 0.8s step-end infinite;
 }
-@keyframes fadeWord {
-  from {opacity: 0; transform: translateY(10px); filter: blur(4px);}
-  to {opacity: 1; transform: translateY(0); filter: blur(0);}
-}
-
-/* Features */
-.features {
-  position: relative;
-  z-index: 5;
-  margin-top: 50px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-.feature-card {
-  background: rgba(0, 0, 0, 0.7);
-  border: 1px solid #00ffff50;
-  padding: 20px;
-  width: 200px;
-  border-radius: 15px;
-  color: #00ffff;
-  transition: transform 0.3s, box-shadow 0.3s, text-shadow 0.3s;
-  text-align: center;
-}
-.feature-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 20px #00ffff, 0 0 40px #ff3;
-  text-shadow: 0 0 5px #00ffff;
+@keyframes blink {
+  50% {border-color: transparent;}
 }
 
 /* Chat */
@@ -286,7 +261,9 @@ canvas {
   <div class="oo">oo</div>
   <div class="xtream">Xtream</div>
 
-  <div class="xtream-description" id="typewriter"></div>
+  <div class="xtream-description">
+    <span id="typewriter" class="typing"></span>
+  </div>
 
   <!-- Chat box -->
   <div class="chat-container">
@@ -308,31 +285,35 @@ canvas {
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 <script>
-// ===== Text Fade Word by Word =====
-const text = "I am Xtream — born from Optimus, a new creation forged to change the world.";
-const words = text.split(" ");
-const container = document.getElementById("typewriter");
+// ===== Typewriter Effect =====
+const descriptionText = "I am Xtream — born from Optimus, the new creation that will change the world.";
+const typewriter = document.getElementById("typewriter");
 
-words.forEach((word, index) => {
-  const span = document.createElement("span");
-  span.textContent = word + " ";
-  span.classList.add("word");
-  span.style.animationDelay = `${index * 0.5}s`;
-  container.appendChild(span);
-});
+let index = 0;
+setTimeout(() => {
+  const typing = setInterval(() => {
+    if (index < descriptionText.length) {
+      typewriter.textContent += descriptionText[index];
+      index++;
+    } else {
+      clearInterval(typing);
+      typewriter.style.borderRight = "none";
+    }
+  }, 60);
+}, 9000); // starts after "Xtream" animation
 
-// ===== Background Music Hover =====
+// ===== Music hover =====
 const bgMusic = document.getElementById("bg-music");
 bgMusic.volume = 0.2;
-document.querySelectorAll('.menu-item').forEach(item => {
-  item.addEventListener('mouseenter', () => bgMusic.volume = 0.5);
-  item.addEventListener('mouseleave', () => bgMusic.volume = 0.2);
+document.querySelectorAll(".menu-item").forEach(item => {
+  item.addEventListener("mouseenter", () => (bgMusic.volume = 0.5));
+  item.addEventListener("mouseleave", () => (bgMusic.volume = 0.2));
 });
 
-// ===== 3D Floating Cubes =====
+// ===== 3D Background =====
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ canvas: document.createElement('canvas'), alpha: true });
+const renderer = new THREE.WebGLRenderer({ canvas: document.createElement("canvas"), alpha: true });
 document.body.appendChild(renderer.domElement);
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
@@ -346,7 +327,7 @@ const cubes = [];
 const geo = new THREE.BoxGeometry(1, 1, 1);
 for (let i = 0; i < 50; i++) {
   const mat = new THREE.MeshStandardMaterial({
-    color: new THREE.Color(`hsl(${Math.random() * 360},100%,60%)`),
+    color: new THREE.Color(`hsl(${Math.random() * 360}, 100%, 60%)`),
     emissive: 0x001133
   });
   const cube = new THREE.Mesh(geo, mat);
