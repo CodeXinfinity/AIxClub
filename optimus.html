@@ -35,12 +35,17 @@ canvas{position:fixed;top:0;left:0;z-index:-1;}
 @keyframes ooAppear{from{opacity:0;transform:scale(0) rotate(0deg);}to{opacity:1;transform:scale(1.1) rotate(0deg);}}
 @keyframes infinityMove{0%,100%{transform:rotate(0deg) scale(1);}25%{transform:rotate(15deg) scale(1.1);}50%{transform:rotate(-15deg) scale(1.1);}75%{transform:rotate(10deg) scale(1);}}
 
-.xtream{font-size:3.5em;font-weight:bold;color:#ff0066;letter-spacing:3px;opacity:0;animation:fadeInXtream 2s ease-in 7s forwards;text-shadow:0 0 20px #ff3,0 0 40px #ff0066;}
+.xtream{font-size:4em;font-weight:bold;color:#ff0066;letter-spacing:4px;opacity:0;animation:fadeInXtream 2s ease-in 7s forwards;text-shadow:0 0 20px #ff3,0 0 40px #ff0066;}
 @keyframes fadeInXtream{from{opacity:0;transform:scale(0.7);}to{opacity:1;transform:scale(1);}}
 
-.xtream-description{font-size:1.2em;color:#00ffff;opacity:0;margin-top:20px;letter-spacing:1px;text-shadow:0 0 8px #00ffff;animation:fadeInDescription 1s ease-in 9s forwards;}
-.typing{display:inline-block;border-right:2px solid #00ffff;white-space:nowrap;overflow:hidden;animation:blink 0.8s step-end infinite;}
-@keyframes blink{50%{border-color:transparent;}}
+.xtream-description{font-size:1.3em;color:#00ffff;opacity:0;margin-top:20px;letter-spacing:1.2px;text-shadow:0 0 8px #00ffff;animation:fadeInDescription 1s ease-in 9s forwards;}
+@keyframes fadeInDescription{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+.word{opacity:0;display:inline-block;animation:fadeWord 0.8s forwards;}
+@keyframes fadeWord{
+  from{opacity:0;filter:blur(6px);transform:translateY(10px);}
+  to{opacity:1;filter:blur(0);transform:translateY(0);}
+}
 
 /* Features */
 .features{position:relative;z-index:5;margin-top:50px;display:flex;justify-content:center;flex-wrap:wrap;gap:30px;}
@@ -76,7 +81,9 @@ canvas{position:fixed;top:0;left:0;z-index:-1;}
   <div class="optimus-right">OPTIMUS</div>
   <div class="oo">oo</div>
   <div class="xtream">Xtream</div>
-  <div class="xtream-description"><span id="typewriter" class="typing"></span></div>
+  <div class="xtream-description">
+    <span id="typewriter"></span>
+  </div>
 
   <!-- Chat box under Xtream description -->
   <div class="chat-container">
@@ -98,50 +105,70 @@ canvas{position:fixed;top:0;left:0;z-index:-1;}
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 <script>
-// ================= Typewriter =================
-const descriptionText="I am Xtream — born from Optimus, the flow of endless innovation.";
-const typewriter=document.getElementById("typewriter");
-let index=0;
-const typeInterval=setInterval(()=>{
-  if(index<descriptionText.length){typewriter.textContent+=descriptionText[index]; index++;}
-  else clearInterval(typeInterval);
-},60);
+// ================= Fade-in Word Animation =================
+const descriptionText = "I'm Xtream — born from Optimus, a new creature that will change the world.";
+const words = descriptionText.split(" ");
+const typewriter = document.getElementById("typewriter");
+
+words.forEach((word, i) => {
+  const span = document.createElement("span");
+  span.textContent = word + " ";
+  span.className = "word";
+  span.style.animationDelay = `${i * 0.4}s`; // each word appears later
+  typewriter.appendChild(span);
+});
 
 // ================= Music hover =================
-const bgMusic=document.getElementById("bg-music"); 
-bgMusic.volume=0.2;
+const bgMusic = document.getElementById("bg-music"); 
+bgMusic.volume = 0.2;
 document.querySelectorAll('.menu-item').forEach(item=>{
   item.addEventListener('mouseenter',()=>{bgMusic.volume=0.5;});
   item.addEventListener('mouseleave',()=>{bgMusic.volume=0.2;});
 });
 
 // ================= 3D Background =================
-const scene=new THREE.Scene();
-const camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
-const renderer=new THREE.WebGLRenderer({canvas:document.createElement('canvas'),alpha:true});
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
+const renderer = new THREE.WebGLRenderer({canvas:document.createElement('canvas'),alpha:true});
 document.body.appendChild(renderer.domElement);
 renderer.setSize(window.innerWidth,window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 
-const light=new THREE.PointLight(0x00ffff,2); 
+const light = new THREE.PointLight(0x00ffff,2); 
 light.position.set(0,5,10); 
 scene.add(light); 
 scene.add(new THREE.AmbientLight(0x003366,0.5));
 
-const cubes=[];
-const geo=new THREE.BoxGeometry(1,1,1);
+const cubes = [];
+const geo = new THREE.BoxGeometry(1,1,1);
 for(let i=0;i<50;i++){
-  const mat=new THREE.MeshStandardMaterial({color:new THREE.Color(`hsl(${Math.random()*360},100%,60%)`),emissive:0x001133});
-  const cube=new THREE.Mesh(geo,mat);
+  const mat = new THREE.MeshStandardMaterial({color:new THREE.Color(`hsl(${Math.random()*360},100%,60%)`),emissive:0x001133});
+  const cube = new THREE.Mesh(geo,mat);
   cube.position.set((Math.random()-0.5)*40,Math.random()*30+10,(Math.random()-0.5)*30);
   cube.rotation.set(Math.random()*Math.PI,Math.random()*Math.PI,0);
   cube.scale.setScalar(Math.random()*0.8+0.2);
   scene.add(cube); cubes.push(cube);
 }
 camera.position.z=25;
-function animate(){requestAnimationFrame(animate);cubes.forEach(c=>{c.rotation.x+=0.01;c.rotation.y+=0.01;c.position.y-=0.05;if(c.position.y<-15){c.position.y=Math.random()*25+15;c.position.x=(Math.random()-0.5)*40;}});renderer.render(scene,camera);}
+function animate(){
+  requestAnimationFrame(animate);
+  cubes.forEach(c=>{
+    c.rotation.x+=0.01;
+    c.rotation.y+=0.01;
+    c.position.y-=0.05;
+    if(c.position.y<-15){
+      c.position.y=Math.random()*25+15;
+      c.position.x=(Math.random()-0.5)*40;
+    }
+  });
+  renderer.render(scene,camera);
+}
 animate();
-window.addEventListener('resize',()=>{camera.aspect=window.innerWidth/window.innerHeight;camera.updateProjectionMatrix();renderer.setSize(window.innerWidth,window.innerHeight);});
+window.addEventListener('resize',()=>{
+  camera.aspect=window.innerWidth/window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth,window.innerHeight);
+});
 
 // ================= Chat Hugging Face =================
 const chatBox=document.getElementById('chat-box');
@@ -152,7 +179,6 @@ async function sendMessage(){
   const userMessage=chatInput.value.trim();
   if(!userMessage) return;
 
-  // User
   const userDiv=document.createElement('div');
   userDiv.className='chat-message user';
   userDiv.textContent=userMessage;
@@ -160,7 +186,6 @@ async function sendMessage(){
   chatBox.scrollTop=chatBox.scrollHeight;
   chatInput.value="";
 
-  // Bot loading
   const botDiv=document.createElement('div');
   botDiv.className='chat-message bot';
   botDiv.textContent="Xtream is thinking...";
